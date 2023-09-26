@@ -10,11 +10,25 @@ public class CalculatorModel {
 	private int calculationValue;
 	
 	public void addTwoNumbers(int firstNumber, int secondNumber){
-		
 		calculationValue = firstNumber + secondNumber;
-		
 	}
-	
+
+	public void subtractTwoNumbers(int a, int b){
+		calculationValue = a - b;
+	}
+
+	public void multiplyTwoNumbers(int a, int b){
+		calculationValue = a * b;
+	}
+
+	public void divideTwoNumbers(int a, int b){
+		calculationValue = a / b;
+	}
+
+	public void modTwoNumbers(int a, int b){
+		calculationValue = a % b;
+	}
+
 	public int getCalculationValue(){
 		
 		return calculationValue;
