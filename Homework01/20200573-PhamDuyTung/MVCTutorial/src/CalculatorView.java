@@ -16,8 +16,8 @@ public class CalculatorView extends JFrame{
 	private JTextField firstNumber  = new JTextField(10);
 	private JTextField secondNumber = new JTextField(10);
 	private JTextField calcSolution = new JTextField(10);
-	private JLabel secondNumberTextArea = new JLabel("First Number");
 	private JLabel firstNumberTextArea = new JLabel("Second Number");
+	private JLabel secondNumberTextArea = new JLabel("First Number");
 	private JLabel resultTextArea = new JLabel("Result");
 	private JButton minusButton = new JButton("-");
 	private JButton CLEARButton = new JButton("CLEAR");
@@ -34,7 +34,7 @@ public class CalculatorView extends JFrame{
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(500, 600);
-		this.setLayout(new GridLayout(6, 2, 10, 10));
+		calcPanel.setLayout(new GridLayout(6, 2, 10, 10));
 
 //		this.firstNumber.setSize(100, 100);
 //		secondNumber.setSize(100, 100);
