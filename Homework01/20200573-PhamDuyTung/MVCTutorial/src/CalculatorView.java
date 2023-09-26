@@ -13,9 +13,9 @@ import javax.swing.*;
 
 public class CalculatorView extends JFrame{
 
-	private JTextField firstNumber  = new JTextField("4");
-	private JTextField secondNumber = new JTextField("4");
-	private JTextField calcSolution = new JTextField("8");
+	private JTextField firstNumber  = new JTextField(10);
+	private JTextField secondNumber = new JTextField(10);
+	private JTextField calcSolution = new JTextField(10);
 	private JLabel secondNumberTextArea = new JLabel("First Number");
 	private JLabel firstNumberTextArea = new JLabel("Second Number");
 	private JLabel resultTextArea = new JLabel("Result");
@@ -36,27 +36,27 @@ public class CalculatorView extends JFrame{
 		this.setSize(500, 600);
 		this.setLayout(new GridLayout(6, 2, 10, 10));
 
-		this.firstNumber.setSize(100, 100);
-		secondNumber.setSize(100, 100);
-		calcSolution.setSize(100, 100);
-		firstNumberTextArea.setSize(100, 100);
-		secondNumberTextArea.setSize(100, 100);
-		resultTextArea.setSize(100, 100);
-		minusButton.setSize(100, 100);
-		CLEARButton.setSize(100, 100);
-		this.divButton.setSize(300, 300);
-		addButton.setSize(100, 100);
-		mulButton.setSize(100, 100);
-		modButton.setSize(100, 100);
-
-		modButton.setBounds(10, 210, 20, 20);
-		addButton.setBounds(300, 180, addButton.getPreferredSize().width, addButton.getPreferredSize().height);
+//		this.firstNumber.setSize(100, 100);
+//		secondNumber.setSize(100, 100);
+//		calcSolution.setSize(100, 100);
+//		firstNumberTextArea.setSize(100, 100);
+//		secondNumberTextArea.setSize(100, 100);
+//		resultTextArea.setSize(100, 100);
+//		minusButton.setSize(100, 100);
+//		CLEARButton.setSize(100, 100);
+//		this.divButton.setSize(300, 300);
+//		addButton.setSize(100, 100);
+//		mulButton.setSize(100, 100);
+//		modButton.setSize(100, 100);
+//
+//		modButton.setBounds(10, 210, 20, 20);
+//		addButton.setBounds(300, 180, addButton.getPreferredSize().width, addButton.getPreferredSize().height);
 
 		calcPanel.add(firstNumberTextArea);
-		calcPanel.add(secondNumberTextArea);
-		calcPanel.add(resultTextArea);
 		calcPanel.add(firstNumber);
+		calcPanel.add(secondNumberTextArea);
 		calcPanel.add(secondNumber);
+		calcPanel.add(resultTextArea);
 		calcPanel.add(calcSolution);
 		calcPanel.add(addButton);
 		calcPanel.add(minusButton);
