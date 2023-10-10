@@ -1,5 +1,5 @@
 Phân chia người phụ trách use case:
-Phạm Duy Tùng: xem thông tin chấm công
-Đỗ Minh Đức: chấm công, đăng ký nhân viên mới
-Trương Đăng Biển: import, export thông tin chấm công
-Đỗ Đức Mạnh: Phản hồi, chỉnh sửa thông tin chấm công
+Phạm Duy Tùng: xem bản ghi chấm công chi tiết của nhân viên
+Đỗ Minh Đức: xuất báo cáo chấm công
+Trương Đăng Biển: import thông tin chấm công
+Đỗ Đức Mạnh: Phản hồi về thông tin chấm công

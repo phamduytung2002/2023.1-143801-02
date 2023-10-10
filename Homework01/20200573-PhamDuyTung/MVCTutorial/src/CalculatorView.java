@@ -6,9 +6,6 @@
 
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
 import javax.swing.*;
 
 public class CalculatorView extends JFrame{
@@ -16,8 +13,8 @@ public class CalculatorView extends JFrame{
 	private JTextField firstNumber  = new JTextField(10);
 	private JTextField secondNumber = new JTextField(10);
 	private JTextField calcSolution = new JTextField(10);
-	private JLabel firstNumberTextArea = new JLabel("Second Number");
-	private JLabel secondNumberTextArea = new JLabel("First Number");
+	private JLabel firstNumberTextArea = new JLabel("First Number");
+	private JLabel secondNumberTextArea = new JLabel("Second Number");
 	private JLabel resultTextArea = new JLabel("Result");
 	private JButton minusButton = new JButton("-");
 	private JButton CLEARButton = new JButton("CLEAR");
@@ -27,30 +24,11 @@ public class CalculatorView extends JFrame{
 	private JButton modButton = new JButton("%");
 
 	CalculatorView() {
-
-		// Sets up the view and adds the components
-
 		JPanel calcPanel = new JPanel();
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(500, 600);
 		calcPanel.setLayout(new GridLayout(6, 2, 10, 10));
-
-//		this.firstNumber.setSize(100, 100);
-//		secondNumber.setSize(100, 100);
-//		calcSolution.setSize(100, 100);
-//		firstNumberTextArea.setSize(100, 100);
-//		secondNumberTextArea.setSize(100, 100);
-//		resultTextArea.setSize(100, 100);
-//		minusButton.setSize(100, 100);
-//		CLEARButton.setSize(100, 100);
-//		this.divButton.setSize(300, 300);
-//		addButton.setSize(100, 100);
-//		mulButton.setSize(100, 100);
-//		modButton.setSize(100, 100);
-//
-//		modButton.setBounds(10, 210, 20, 20);
-//		addButton.setBounds(300, 180, addButton.getPreferredSize().width, addButton.getPreferredSize().height);
 
 		calcPanel.add(firstNumberTextArea);
 		calcPanel.add(firstNumber);
@@ -65,29 +43,19 @@ public class CalculatorView extends JFrame{
 		calcPanel.add(modButton);
 		calcPanel.add(CLEARButton);
 
-
-
 		this.add(calcPanel);
-
-		// End of setting up the components --------
 	}
 
 	public int getFirstNumber(){
-
 		return Integer.parseInt(firstNumber.getText());
-
 	}
 
 	public int getSecondNumber(){
-
 		return Integer.parseInt(secondNumber.getText());
-
 	}
 
 	public int getCalcSolution(){
-
 		return Integer.parseInt(calcSolution.getText());
-
 	}
 
 	public void setFirstNumber(String a){
@@ -102,12 +70,13 @@ public class CalculatorView extends JFrame{
 		calcSolution.setText(Integer.toString(solution));
 	}
 
+	public void setCalcSolution(String x){calcSolution.setText(x);}
+
 	// If the calculateButton is clicked execute a method
 	// in the Controller named actionPerformed
 
 	void addAddButtonListener(ActionListener listenForCalcButton){
 		addButton.addActionListener(listenForCalcButton);
-		setCalcSolution(4);
 	}
 
 	void addMinusButtonListener(ActionListener listenForCalcButton){
@@ -130,12 +99,7 @@ public class CalculatorView extends JFrame{
 		CLEARButton.addActionListener(listenForCalcButton);
 	}
 
-	void addModBUttonListener(ActionListener listenForCalcButton){
-		modButton.addActionListener(listenForCalcButton);
-	}
-
 	// Open a popup that contains the error message passed
-
 	void displayErrorMessage(String errorMessage){
 
 		JOptionPane.showMessageDialog(this, errorMessage);

@@ -143,6 +143,9 @@ public class CalculatorController {
 
 				theView.displayErrorMessage("You Need to Enter 2 Integers");
 
+			} catch (ArithmeticException ex){
+				System.out.println(ex);
+				theView.displayErrorMessage("Cannot divide by 0!");
 			}
 
 		}
@@ -194,7 +197,7 @@ public class CalculatorController {
 
 				theView.setFirstNumber("");
 				theView.setSecondNumber("");
-				theView.setCalcSolution(0);
+				theView.setCalcSolution("");
 
 
 			} catch (NumberFormatException ex) {
