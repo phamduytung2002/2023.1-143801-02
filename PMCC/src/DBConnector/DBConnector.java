@@ -1,68 +1,66 @@
 package DBConnector;
 
-import java.sql.Connection;
-        import java.sql.DriverManager;
-        import java.sql.PreparedStatement;
-        import java.sql.ResultSet;
-        import java.sql.SQLException;
+import com.mongodb.ConnectionString;
+import com.mongodb.MongoClientSettings;
+import com.mongodb.MongoException;
+import com.mongodb.ServerApi;
+import com.mongodb.ServerApiVersion;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
+import java.util.function.Consumer;
 
 public class DBConnector {
-    /*
-        host name: sql213.infinityfree.com
-        username: if0_35644285
-        password: u4C5EzQYVDGQtu
-        port: 3306
-        db name: if0_35644285_XXX
-     */
-    // JDBC URL, username, and password of MySQL server
-    private static final String JDBC_URL = "jdbc:mysql://sql213.infinityfree.com:3306/if0_35644285_XXX?autoReconnect=true&useSSL=false&connectTimeout=30000";
-    private static final String USERNAME = "if0_35644285";
-    private static final String PASSWORD = "u4C5EzQYVDGQtu";
+    private static final String connectionString = "mongodb+srv://ducdm200158:Uz9AIW3Wh5AjuSbL@dbhethongchamcong.b7msvmq.mongodb.net/?retryWrites=true&w=majority";
+    private final String database_name;
+    private final String collection_name;
+    private final MongoDatabase database;
+    private final MongoCollection<Document> collection;
+
+    public DBConnector(String database_name, String collection_name) {
+        this.database_name = database_name;
+        this.collection_name = collection_name;
+        this.database = connectToDatabase();
+        this.collection = database.getCollection(collection_name);
+        System.out.println("You successfully connected to MongoDB!");
+    }
+
+    private MongoDatabase connectToDatabase() {
+        ServerApi serverApi = ServerApi.builder()
+                .version(ServerApiVersion.V1)
+                .build();
+        MongoClientSettings settings = MongoClientSettings.builder()
+                .applyConnectionString(new ConnectionString(connectionString))
+                .serverApi(serverApi)
+                .build();
+        MongoClient mongoClient = MongoClients.create(settings);
+        return mongoClient.getDatabase(database_name);
+    }
+
+    public void insertData(Document document) {
+        try {
+            this.collection.insertOne(document);
+        } catch (MongoException e) {
+            e.printStackTrace();
+        }
+    }
+    private static final Consumer<Document> printBlock = document -> {
+        System.out.println(document.toJson());
+    };
+    public void getData() {
+        try {
+            this.collection.find().forEach(printBlock);
+        } catch (MongoException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void main(String[] args) {
-        Connection connection = null;
-
-        try {
-            // Establishing a connection
-            connection = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
-
-            // Perform database operations (e.g., querying or updating)
-
-            // Example: Query data from a table
-            queryData(connection);
-
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            // Closing the connection
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        // Example usage
+        DBConnector connector = new DBConnector("ChamCong", "Ban ghi cham cong");
+        connector.insertData(new Document("key", "value"));
+        connector.getData();
     }
-
-    private static void queryData(Connection connection) throws SQLException {
-        String query = "SELECT * FROM DSChamCong";
-
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query);
-             ResultSet resultSet = preparedStatement.executeQuery()) {
-
-            // Process the result set
-            while (resultSet.next()) {
-                // Retrieve data from the result set
-                int id = resultSet.getInt("id");
-                String columnName = resultSet.getString("column_name");
-
-                // Process the retrieved data as needed
-                System.out.println("ID: " + id + ", ColumnName: " + columnName);
-            }
-        }
-    }
-
-
 }
