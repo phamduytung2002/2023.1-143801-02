@@ -1,7 +1,7 @@
 package login.java;
 
 public class XacThucService {
-    protected static String xacThuc(String tenDangNhap, String matKhau){
+    public static String xacThuc(String tenDangNhap, String matKhau){
         if (tenDangNhap.equals("CongNhan") && matKhau.equals("123456")) {
             return "CongNhan";
         } else if(tenDangNhap.equals("NhanVienVanPhong") && matKhau.equals("123456"))
