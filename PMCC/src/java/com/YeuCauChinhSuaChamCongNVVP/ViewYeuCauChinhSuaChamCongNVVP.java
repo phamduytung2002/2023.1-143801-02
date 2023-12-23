@@ -1,23 +1,29 @@
-package home.java;
+package com.YeuCauChinhSuaChamCongNVVP;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ViewTruongDVNVVPHome {
+public class ViewYeuCauChinhSuaChamCongNVVP {
     @FXML
-    private StackPane xemBaoCaoChamCongPane;
+    private Button confirmButton;
 
     @FXML
-    private StackPane trangChuPane;
+    private DatePicker DateBaoCao;
+
+    @FXML
+    private ChoiceBox ChoicePane;
+
+    @FXML
+    private TextArea TextPane;
 
     private Parent root;
 
@@ -26,8 +32,8 @@ public class ViewTruongDVNVVPHome {
     @FXML
     private AnchorPane modifiablePane;
 
-    ViewTruongDVNVVPHome(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/home/resources/UItruongDVNVVP.fxml"));
+    ViewYeuCauChinhSuaChamCongNVVP(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("yeucauchinhsuachamcongNVVP.fxml"));
         try {
             loader.setController(this);
             root = loader.load();
@@ -38,7 +44,7 @@ public class ViewTruongDVNVVPHome {
     }
 
     void show() {
-        stage.setTitle("PMCC - Nhóm 2 - Trưởng đơn vị nhân viên văn phòng");
+        stage.setTitle("Công nhân");
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -52,15 +58,12 @@ public class ViewTruongDVNVVPHome {
         return root;
     }
 
-    public AnchorPane getModifiablePane() {
-        return modifiablePane;
+    void setClickConfirm(EventHandler<MouseEvent> eventHandler){
+        confirmButton.setOnMouseClicked(eventHandler);
     }
 
-    void setClickBaoCaoChamCong(EventHandler<MouseEvent> eventHandler){
-        xemBaoCaoChamCongPane.setOnMouseClicked(eventHandler);
+    void getDateBaoCao(EventHandler<MouseEvent> eventHandler){
+        DateBaoCao.setOnMouseClicked(eventHandler);
     }
 
-    void setClickTrangChu(EventHandler<MouseEvent> eventHandler){
-        trangChuPane.setOnMouseClicked(eventHandler);
-    }
 }

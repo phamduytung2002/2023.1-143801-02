@@ -1,7 +1,7 @@
-package login.java;
+package com.Login;
 
 public class XacThucService {
-    protected static String xacThuc(String tenDangNhap, String matKhau){
+    public static String xacThuc(String tenDangNhap, String matKhau){
         if (tenDangNhap.equals("CN") && matKhau.equals("123456")) {
             return "CongNhan";
         } else if(tenDangNhap.equals("NVVP") && matKhau.equals("123456"))

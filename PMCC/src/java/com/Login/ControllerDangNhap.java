@@ -1,19 +1,20 @@
-package login.java;
+package com.Login;
 
+import com.home.ControllerNVVPHome;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
-import home.java.ControllerTruongDVNVVPHome;
+
 
 public class ControllerDangNhap {
     private ViewDangNhap viewDangNhap;
+    private ControllerNVVPHome controllerNVVPHome;
 
-    private ControllerTruongDVNVVPHome controllerTruongDVNVVPHome;
 
-    void handleResult(String result){
-        if(result.equals("TruongDonViNVVP")) {
+    public void handleResult(String result){
+        if(result.equals("NhanVienVanPhong")) {
             viewDangNhap.close();
-            controllerTruongDVNVVPHome.showView();
+            controllerNVVPHome.showView();
         } else if(!result.equals("")){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setHeaderText("");
@@ -31,7 +32,7 @@ public class ControllerDangNhap {
 
     public ControllerDangNhap() {
         viewDangNhap = new ViewDangNhap();
-        controllerTruongDVNVVPHome = new ControllerTruongDVNVVPHome();
+        controllerNVVPHome = new ControllerNVVPHome();
         viewDangNhap.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
