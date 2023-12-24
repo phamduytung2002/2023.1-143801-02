@@ -26,7 +26,10 @@ public class ViewTruongDVNVVPHome {
     @FXML
     private AnchorPane modifiablePane;
 
+    private FXMLLoader anchorPaneLoader;
+
     ViewTruongDVNVVPHome(){
+        anchorPaneLoader = new FXMLLoader(getClass().getResource("/home/resources/hometruongDVNVVP.fxml"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/home/resources/UItruongDVNVVP.fxml"));
         try {
             loader.setController(this);
@@ -62,5 +65,13 @@ public class ViewTruongDVNVVPHome {
 
     void setClickTrangChu(EventHandler<MouseEvent> eventHandler){
         trangChuPane.setOnMouseClicked(eventHandler);
+    }
+
+    void setPane(){
+        try {
+            modifiablePane.getChildren().set(0, anchorPaneLoader.load());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

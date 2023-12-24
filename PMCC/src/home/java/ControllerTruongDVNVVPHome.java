@@ -13,22 +13,10 @@ public class ControllerTruongDVNVVPHome {
         viewTruongDVNVVPHome = new ViewTruongDVNVVPHome();
         viewTruongDVNVVPHome.setClickBaoCaoChamCong(event -> {
             ControllerBaoCaoChamCongNVVP controllerBaoCaoChamCong = new ControllerBaoCaoChamCongNVVP();
-            Parent root = viewTruongDVNVVPHome.getRoot();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/baocaochamcong/resources/baocaochamcong.fxml"));
-            try {
-                viewTruongDVNVVPHome.getModifiablePane().getChildren().set(0, loader.load());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            controllerBaoCaoChamCong.setPane(viewTruongDVNVVPHome.getModifiablePane());
         });
         viewTruongDVNVVPHome.setClickTrangChu(event -> {
-            Parent root = viewTruongDVNVVPHome.getRoot();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/home/resources/hometruongDVNVVP.fxml"));
-            try {
-                viewTruongDVNVVPHome.getModifiablePane().getChildren().set(0, loader.load());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            viewTruongDVNVVPHome.setPane();
         });
     }
 
