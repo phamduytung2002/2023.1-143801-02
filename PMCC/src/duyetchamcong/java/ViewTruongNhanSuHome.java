@@ -13,11 +13,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ViewTruongNhanSuHome {
-//    @FXML
-//    private StackPane xemBaoCaoChamCongPane;
-//
-//    @FXML
-//    private StackPane trangChuPane;
+    @FXML
+    private StackPane xemBaoCaoChamCongPane;
+
+    @FXML
+    private StackPane trangChuPane;
 
     private Parent root;
 
@@ -56,11 +56,11 @@ public class ViewTruongNhanSuHome {
         return modifiablePane;
     }
 
-//    void setClickBaoCaoChamCong(EventHandler<MouseEvent> eventHandler){
-//        xemBaoCaoChamCongPane.setOnMouseClicked(eventHandler);
-//    }
-//
-//    void setClickTrangChu(EventHandler<MouseEvent> eventHandler){
-//        trangChuPane.setOnMouseClicked(eventHandler);
-//    }
+    void setClickBaoCaoChamCong(EventHandler<MouseEvent> eventHandler){
+        xemBaoCaoChamCongPane.setOnMouseClicked(eventHandler);
+    }
+
+    void setClickTrangChu(EventHandler<MouseEvent> eventHandler){
+        trangChuPane.setOnMouseClicked(eventHandler);
+    }
 }
