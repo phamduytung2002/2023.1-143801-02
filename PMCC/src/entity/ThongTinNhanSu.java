@@ -1,4 +1,4 @@
-package Entity;
+package entity;
 
 public class ThongTinNhanSu {
     private String hoTen;

@@ -1,6 +1,6 @@
 package HRSystem.java;
 
-import Entity.ThongTinNhanSu;
+import entity.ThongTinNhanSu;
 
 import java.util.ArrayList;
 import java.util.List;

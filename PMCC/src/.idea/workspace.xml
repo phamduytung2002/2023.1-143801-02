@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="218f775f-9cd3-45ea-905d-3a28c5e15d27" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/DBConnector/DBBanGhiChamCong.java" beforeDir="false" afterPath="$PROJECT_DIR$/DBConnector/DBBanGhiChamCong.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBConnector/DBConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/DBConnector/DBConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entity/BanGhiChamCong.java" beforeDir="false" afterPath="$PROJECT_DIR$/Entity/BanGhiChamCong.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entity/BangBaoCaoNVVP.java" beforeDir="false" afterPath="$PROJECT_DIR$/Entity/BangBaoCaoNVVP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entity/DongBaoCaoNVVP.java" beforeDir="false" afterPath="$PROJECT_DIR$/Entity/DongBaoCaoNVVP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baocaochamcong/java/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/baocaochamcong/java/Constant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baocaochamcong/java/ControllerBaoCaoChamCongNVVP.java" beforeDir="false" afterPath="$PROJECT_DIR$/baocaochamcong/java/ControllerBaoCaoChamCongNVVP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baocaochamcong/java/ServiceTaoBangBaoCaoNVVP.java" beforeDir="false" afterPath="$PROJECT_DIR$/baocaochamcong/java/ServiceTaoBangBaoCaoNVVP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baocaochamcong/java/ViewBaoCaoChamCongNVVP.java" beforeDir="false" afterPath="$PROJECT_DIR$/baocaochamcong/java/ViewBaoCaoChamCongNVVP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baocaochamcong/resources/baocaochamcong.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/baocaochamcong/resources/baocaochamcong.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/resources/UItruongDVNVVP.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/home/resources/UItruongDVNVVP.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/resources/hometruongDVNVVP.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/home/resources/hometruongDVNVVP.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2a2fRIy6VVl1KbFkFLt2L7fYAXK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "tung3",
+    "last_opened_file_path": "D:/atHust/20231/3_SoftwareDesignAndConstruction/2023.1-143801-02/PMCC/src"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="218f775f-9cd3-45ea-905d-3a28c5e15d27" name="Changes" comment="" />
+      <created>1703521584811</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1703521584811</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -1,18 +1,12 @@
 package baocaochamcong.java;
 
-import Entity.BanGhiChamCong;
-import Entity.ThongTinNhanSu;
+import entity.BangBaoCaoNVVP;
+import entity.ThongTinNhanSu;
 import HRSystem.java.BoundaryHRSystem;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import DBConnector.DBConnector;
-import DBConnector.DBBanGhiChamCong;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class ControllerBaoCaoChamCongNVVP {
@@ -20,69 +14,45 @@ public class ControllerBaoCaoChamCongNVVP {
 
     BoundaryHRSystem HRSystem;
 
-    DBConnector dbConnector;
+    ServiceTaoBangBaoCaoNVVP serviceTaoBangBaoCaoNVVP;
 
     public ControllerBaoCaoChamCongNVVP(){
         viewBaoCaoChamCongNVVP = new ViewBaoCaoChamCongNVVP();
         HRSystem = new BoundaryHRSystem();
+        serviceTaoBangBaoCaoNVVP = new ServiceTaoBangBaoCaoNVVP();
+        LocalDateTime now = LocalDateTime.now();
+        String thang = String.valueOf(now.getMonthValue());
+        String nam = String.valueOf(now.getYear());
+        updateBangBaoCao(thang, nam);
         viewBaoCaoChamCongNVVP.setOnMouseXemButton(event -> {
-            String mqy = viewBaoCaoChamCongNVVP.getMqy();
-            String mqyValue = viewBaoCaoChamCongNVVP.getMqyValue();
-            if(! checkValue(mqy, mqyValue)){
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("");
-                alert.setHeaderText("Thời gian nhập vào không hợp lệ");
-                alert.setContentText("Vui lòng kiểm tra lại dữ liệu nhập vào");
-                alert.showAndWait();
-            } else{
-                List<ThongTinNhanSu> ListThongTinNhanSu = HRSystem.getThongTinNVVP();
-                DBBanGhiChamCong dbBanGhiChamCong = new DBBanGhiChamCong();
-                dbBanGhiChamCong.getData();
-                List<BanGhiChamCong> listBanGHi = dbBanGhiChamCong.queryByID("20200573");
-                for(BanGhiChamCong banGhiChamCong : listBanGHi){
-                    System.out.println(banGhiChamCong.getID() + " " + banGhiChamCong.getThoiGian());
-                }
-            }
+            String thangField = viewBaoCaoChamCongNVVP.getThang();
+            String namField = viewBaoCaoChamCongNVVP.getNam();
+            updateBangBaoCao(thangField, namField);
         });
     }
 
-    public void getData(){
-
+    private void updateBangBaoCao(String thang, String nam){
+        if(! checkValue(thang, nam)){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("");
+            alert.setHeaderText("Thời gian nhập vào không hợp lệ");
+            alert.setContentText("Vui lòng kiểm tra lại dữ liệu nhập vào");
+            alert.showAndWait();
+        } else{
+            int thangInt = Integer.parseInt(thang);
+            int namInt = Integer.parseInt(nam);
+            List<ThongTinNhanSu> listThongTinNhanSu = HRSystem.getThongTinNVVP();
+            BangBaoCaoNVVP bangBaoCao = serviceTaoBangBaoCaoNVVP.getBangBaoCao(listThongTinNhanSu, thangInt, namInt);
+            viewBaoCaoChamCongNVVP.updateBangBaoCao(bangBaoCao.getBang());
+        }
     }
 
-    private boolean checkValue(String mqy, String mqyValue){
-        switch (mqy) {
-            case "Tháng" -> {
-                if (mqyValue.matches("[0-9]+")) {
-                    int month = Integer.parseInt(mqyValue);
-                    if (month > 0 && month < 13) {
-                        return true;
-                    }
-                }
-            }
-            case "Quý" -> {
-                if (mqyValue.matches("[0-9]+")) {
-                    int quarter = Integer.parseInt(mqyValue);
-                    if (quarter > 0 && quarter < 5) {
-                        return true;
-                    }
-                }
-            }
-            case "Năm" -> {
-                if (mqyValue.matches("[0-9]{4}")) {
-                    int year = Integer.parseInt(mqyValue);
-                    if (year > 0) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
+    private boolean checkValue(String thang, String nam){
+        return thang.matches("[0-9]{2}") && nam.matches("[0-9]{4}");
     }
 
     public void changeContent(AnchorPane content){
         viewBaoCaoChamCongNVVP.changeContent(content);
     }
-
 
 }

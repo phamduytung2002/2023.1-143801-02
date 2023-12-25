@@ -9,14 +9,8 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import javafx.util.Pair;
 import org.bson.Document;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.function.Consumer;
 
 public class DBConnector {
@@ -62,6 +56,11 @@ public class DBConnector {
         } catch (MongoException e) {
             e.printStackTrace();
         }
+    }
+
+    public void close(){
+        MongoClient mongoClient = MongoClients.create(connectionString);
+        mongoClient.close();
     }
 
     public static void main(String[] args) {
