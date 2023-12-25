@@ -12,6 +12,7 @@ public class XacThucService {
             return "TruongDonViNVVP";
         else if(tenDangNhap.equals("TruongNhanSu") && matKhau.equals("123456"))
             return "TruongNhanSu";
+        
         else
             return "";
     }
