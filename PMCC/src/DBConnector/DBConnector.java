@@ -9,7 +9,14 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import javafx.util.Pair;
 import org.bson.Document;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 
 public class DBConnector {
@@ -17,7 +24,7 @@ public class DBConnector {
     private final String database_name;
     private final String collection_name;
     private final MongoDatabase database;
-    private final MongoCollection<Document> collection;
+    protected final MongoCollection<Document> collection;
 
     public DBConnector(String database_name, String collection_name) {
         this.database_name = database_name;

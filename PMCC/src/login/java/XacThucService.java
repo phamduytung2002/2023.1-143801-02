@@ -8,7 +8,7 @@ public class XacThucService {
             return "NhanVienVanPhong";
         else if(tenDangNhap.equals("TruongDonViCN") && matKhau.equals("123456"))
             return "TruongDonViCN";
-        else if(tenDangNhap.equals("TruongDonViNVVP") && matKhau.equals("123456"))
+        else if(tenDangNhap.equals("TVP") && matKhau.isEmpty())
             return "TruongDonViNVVP";
         else if(tenDangNhap.equals("TruongNhanSu") && matKhau.equals("123456"))
             return "TruongNhanSu";
