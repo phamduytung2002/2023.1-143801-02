@@ -12,4 +12,6 @@ module PMCC {
     opens home.java to javafx.fxml;
     opens duyetchamcong.java to javafx.fxml;
     exports login.test to junit;
+    opens baocaochamcong.java to javafx.fxml;
+    opens entity to javafx.base;
 }

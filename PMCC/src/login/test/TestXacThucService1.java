@@ -9,6 +9,7 @@ public class TestXacThucService1 {
     public void testXacThuc(){
         String tenDangNhap = "NhanVienVanPhong";
         String matKhau = "123456";
-        Assert.assertEquals("NhanVienVanPhong", XacThucService.xacThuc(tenDangNhap, matKhau));
+        XacThucService xacThucService = new XacThucService();
+        Assert.assertEquals("NhanVienVanPhong", xacThucService.xacThuc(tenDangNhap, matKhau));
     }
 }

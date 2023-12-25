@@ -10,6 +10,7 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
+
 import java.util.function.Consumer;
 
 public class DBConnector {
@@ -17,7 +18,7 @@ public class DBConnector {
     private final String database_name;
     private final String collection_name;
     private final MongoDatabase database;
-    private final MongoCollection<Document> collection;
+    protected final MongoCollection<Document> collection;
 
     public DBConnector(String database_name, String collection_name) {
         this.database_name = database_name;
@@ -55,6 +56,11 @@ public class DBConnector {
         } catch (MongoException e) {
             e.printStackTrace();
         }
+    }
+
+    public void close(){
+        MongoClient mongoClient = MongoClients.create(connectionString);
+        mongoClient.close();
     }
 
     public static void main(String[] args) {

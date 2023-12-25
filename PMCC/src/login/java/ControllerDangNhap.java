@@ -10,6 +10,8 @@ public class ControllerDangNhap {
 
     private ControllerTruongDVNVVPHome controllerTruongDVNVVPHome;
     private ControllerTruongNhanSuHome controllerTruongNhanSuHome;
+    private XacThucService xacThucService;
+
     void handleResult(String result){
         if(result.equals("TruongDonViNVVP")) {
             viewDangNhap.close();
@@ -36,12 +38,13 @@ public class ControllerDangNhap {
         viewDangNhap = new ViewDangNhap();
         controllerTruongDVNVVPHome = new ControllerTruongDVNVVPHome();
         controllerTruongNhanSuHome = new ControllerTruongNhanSuHome();
+        xacThucService = new XacThucService();
         viewDangNhap.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 String tenDangNhap = viewDangNhap.getTenDangNhap();
                 String matKhau = viewDangNhap.getMatKhau();
-                String result = XacThucService.xacThuc(tenDangNhap, matKhau);
+                String result = xacThucService.xacThuc(tenDangNhap, matKhau);
                 System.out.println(result);
                 handleResult(result);
             }
