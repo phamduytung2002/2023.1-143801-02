@@ -23,7 +23,7 @@ public class ControllerTruongDVNVVPHome {
         });
         viewTruongDVNVVPHome.setClickTrangChu(event -> {
             Parent root = viewTruongDVNVVPHome.getRoot();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/home/resources/hometruongDVNVVP.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/home/resources/hometruongnhansu.fxml"));
             try {
                 viewTruongDVNVVPHome.getModifiablePane().getChildren().set(0, loader.load());
             } catch (IOException e) {

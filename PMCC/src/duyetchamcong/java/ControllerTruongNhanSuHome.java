@@ -20,9 +20,18 @@ public class ControllerTruongNhanSuHome {
                 throw new RuntimeException(e);
             }
         });
+        viewTruongNhanSuHome.setClickDuyetChamCong(event -> {
+            Parent root = viewTruongNhanSuHome.getRoot();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/duyetchamcong/resources/UIxemyeucauchinhsua.fxml"));
+            try {
+                viewTruongNhanSuHome.getModifiablePane().getChildren().set(0, loader.load());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
         viewTruongNhanSuHome.setClickTrangChu(event -> {
             Parent root = viewTruongNhanSuHome.getRoot();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/duetchamcong/resources/hometruongDVNVVP.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/duyetchamcong/resources/hometruongnhansu.fxml"));
             try {
                 viewTruongNhanSuHome.getModifiablePane().getChildren().set(0, loader.load());
             } catch (IOException e) {

@@ -17,6 +17,9 @@ public class ViewTruongNhanSuHome {
     private StackPane xemBaoCaoChamCongPane;
 
     @FXML
+    private StackPane duyetChamCongPane;
+
+    @FXML
     private StackPane trangChuPane;
 
     private Parent root;
@@ -27,7 +30,7 @@ public class ViewTruongNhanSuHome {
     private AnchorPane modifiablePane;
 
     ViewTruongNhanSuHome(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/duyetchamcong/resources/UItruongDVNVVP.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/duyetchamcong/resources/UItruongnhansu.fxml"));
         try {
             loader.setController(this);
             root = loader.load();
@@ -58,6 +61,12 @@ public class ViewTruongNhanSuHome {
 
     void setClickBaoCaoChamCong(EventHandler<MouseEvent> eventHandler){
         xemBaoCaoChamCongPane.setOnMouseClicked(eventHandler);
+    }
+    void setClickDuyetChamCong (EventHandler<MouseEvent> eventHandler){
+        if (duyetChamCongPane == null) {
+            System.out.println("duyetChamCongPane is null");
+        }
+        duyetChamCongPane.setOnMouseClicked(eventHandler);
     }
 
     void setClickTrangChu(EventHandler<MouseEvent> eventHandler){

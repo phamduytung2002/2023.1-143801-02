@@ -10,5 +10,6 @@ module PMCC {
     opens login.java to javafx.fxml;
     exports main.java to javafx.graphics;
     opens home.java to javafx.fxml;
+    opens duyetchamcong.java to javafx.fxml;
     exports login.test to junit;
 }
