@@ -1,16 +1,23 @@
 package duyetchamcong.java;
 
+import entity.DongYeuCauChinhSua;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ViewTruongNhanSuHome {
     @FXML
@@ -28,6 +35,30 @@ public class ViewTruongNhanSuHome {
 
     @FXML
     private AnchorPane modifiablePane;
+
+    @FXML
+    private TableView<DongYeuCauChinhSua> bangYeuCauChinhSua;
+
+    @FXML
+    private TableColumn<?, ?> hoTenColumn;
+
+    @FXML
+    private TableColumn<?, ?> idColumn;
+
+    @FXML
+    private TableColumn<?, ?> liDoColumn;
+
+    @FXML
+    private TableColumn<?, ?> minhChungColumn;
+
+    @FXML
+    private AnchorPane modifiablePane;
+
+    @FXML
+    private TableColumn<?, ?> sttColumn;
+
+    @FXML
+    private TableColumn<?, ?> yeuCauColumn;
 
     ViewTruongNhanSuHome(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/duyetchamcong/resources/UItruongnhansu.fxml"));
@@ -72,4 +103,20 @@ public class ViewTruongNhanSuHome {
     void setClickTrangChu(EventHandler<MouseEvent> eventHandler){
         trangChuPane.setOnMouseClicked(eventHandler);
     }
+
+    void updateBang(List<DongYeuCauChinhSua> listDongYeuCauChinhSua){
+        ObservableList<DongYeuCauChinhSua> observableList = FXCollections.observableArrayList(listDongYeuCauChinhSua);
+
+        bangYeuCauChinhSua.setItems(observableList);
+        sttColumn.setCellValueFactory(new PropertyValueFactory<>("stt"));
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("ID"));
+        hoTenColumn.setCellValueFactory(new PropertyValueFactory<>("hoTen"));
+        liDoColumn.setCellValueFactory(new PropertyValueFactory<>("lyDo"));
+        yeuCauColumn.setCellValueFactory(new PropertyValueFactory<>("yeuCau"));
+        minhChungColumn.setCellValueFactory(new PropertyValueFactory<>("minhChung"));
+
+        bangYeuCauChinhSua.refresh();
+
+    }
 }
+

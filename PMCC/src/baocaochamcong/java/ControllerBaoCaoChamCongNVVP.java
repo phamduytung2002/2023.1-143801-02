@@ -6,7 +6,9 @@ import HRSystem.java.BoundaryHRSystem;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 
+import java.net.ConnectException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ControllerBaoCaoChamCongNVVP {
@@ -37,7 +39,17 @@ public class ControllerBaoCaoChamCongNVVP {
         } else{
             int thangInt = Integer.parseInt(thang);
             int namInt = Integer.parseInt(nam);
-            List<ThongTinNhanSu> listThongTinNhanSu = HRSystem.getThongTinNVVP();
+            List<ThongTinNhanSu> listThongTinNhanSu = new ArrayList<>();
+            try{
+                listThongTinNhanSu = HRSystem.getThongTinNVVP();
+                if(listThongTinNhanSu.isEmpty()){
+                    viewBaoCaoChamCongNVVP.baoKhongCoDuLieuNhanVien();
+                    return;
+                }
+            } catch (ConnectException e) {
+                viewBaoCaoChamCongNVVP.baoLoiKetNoi();
+                return;
+            }
             BangBaoCaoNVVP bangBaoCao = serviceTaoBangBaoCaoNVVP.getBangBaoCao(listThongTinNhanSu, thangInt, namInt);
             viewBaoCaoChamCongNVVP.updateBangBaoCao(bangBaoCao.getBang());
         }
