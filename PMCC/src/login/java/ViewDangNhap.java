@@ -1,4 +1,4 @@
-package Login.java;
+package login.java;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
