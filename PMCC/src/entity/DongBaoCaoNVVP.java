@@ -17,6 +17,15 @@ public class DongBaoCaoNVVP {
         this.soGioDiMuonVeSom = 0;
     }
 
+    public DongBaoCaoNVVP(ThongTinNhanSu ttns, int thang, int soBuoiLam, double soGioDiMuonVeSom) {
+        this.hoTen = ttns.getHoTen();
+        this.ID = ttns.getID();
+        this.donVi = ttns.getBoPhanLamViec();
+        this.thang = thang;
+        this.soBuoiLam = soBuoiLam;
+        this.soGioDiMuonVeSom = soGioDiMuonVeSom;
+    }
+
     public String getHoTen() {
         return hoTen;
     }
