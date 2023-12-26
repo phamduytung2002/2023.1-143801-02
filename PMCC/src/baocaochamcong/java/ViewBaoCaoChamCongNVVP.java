@@ -43,7 +43,6 @@ public class ViewBaoCaoChamCongNVVP {
     @FXML
     private TableColumn<?, ?> idColumn;
 
-
     @FXML
     private TableColumn<?, ?> thangColumn;
 
