@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 public class ControllerYeuCauChinhSuaChamCongNVVP {
     public ViewYeuCauChinhSuaChamCongNVVP viewYeuCauChinhSuaChamCongNVVP;
-    public DBConnector dbConnector;
+
     public ControllerYeuCauChinhSuaChamCongNVVP(){
         viewYeuCauChinhSuaChamCongNVVP = new ViewYeuCauChinhSuaChamCongNVVP();
         viewYeuCauChinhSuaChamCongNVVP.initialize();

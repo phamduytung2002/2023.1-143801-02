@@ -1,7 +1,6 @@
 package duyetchamcong.java;
 
 import entity.DongYeuCauChinhSua;
-import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -18,8 +17,6 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class ViewXemYeuCauChinhSua{
     @FXML

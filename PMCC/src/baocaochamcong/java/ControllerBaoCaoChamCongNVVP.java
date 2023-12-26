@@ -3,7 +3,6 @@ package baocaochamcong.java;
 import entity.BangBaoCaoNVVP;
 import entity.ThongTinNhanSu;
 import HRSystem.java.BoundaryHRSystem;
-import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.ConnectException;

@@ -1,6 +1,5 @@
 package duyetchamcong.java;
 
-import entity.DongYeuCauChinhSua;
 import javafx.collections.ObservableList;
 
 public class UpdateTable {

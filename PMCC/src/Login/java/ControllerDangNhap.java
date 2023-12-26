@@ -5,7 +5,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import home.java.ControllerTruongDVNVVPHome;
-import duyetchamcong.java.ControllerTruongNhanSuHome;
+import home.java.ControllerTruongNhanSuHome;
 public class ControllerDangNhap {
     private ViewDangNhap viewDangNhap;
     private ControllerNVVPHome controllerNVVPHome;

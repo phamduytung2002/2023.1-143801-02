@@ -4,7 +4,6 @@ import YeuCauChinhSuaChamCongNVVP.java.ControllerYeuCauChinhSuaChamCongNVVP;
 
 public class ControllerNVVPHome {
     private ViewNVVPHome viewNVVPHome;
-    private ControllerYeuCauChinhSuaChamCongNVVP controllerYeuCauChinhSuaChamCongNVVP;
 
     public ControllerNVVPHome(){
         viewNVVPHome = new ViewNVVPHome();

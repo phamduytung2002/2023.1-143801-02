@@ -11,20 +11,22 @@ module PMCC {
     requires org.junit.jupiter.api;
     opens DBConnector.java to javafx.fxml;
     exports DBConnector.java;
-    opens YeuCauChinhSuaChamCongNVVP.java to javafx.fxml;
     exports YeuCauChinhSuaChamCongNVVP.java;
     exports login.java to javafx.fxml;
     opens login.java to javafx.fxml;
     exports main.main.java to javafx.graphics;
     opens home.java to javafx.fxml;
-    opens duyetchamcong.java to javafx.fxml;
     exports login.test to junit;
-    opens baocaochamcong.java to javafx.fxml;
-    opens entity to javafx.base;
     exports baocaochamcong.test to junit;
     // open the package to javafx.fxml
     exports duyetchamcong.java; // export the package
     exports duyetchamcong.test to junit;
     exports xuatbaocaochamcong.xuatbaocaochamcongcongnhan;
     opens YeuCauChinhSuaChamCongNVVP.Test to junit;
+    exports home.java;
+    opens baocaochamcong.java to javafx.base, javafx.fxml;
+    opens duyetchamcong.java to javafx.base, javafx.fxml;
+    opens YeuCauChinhSuaChamCongNVVP.java to javafx.base, javafx.fxml;
+    opens entity to javafx.base, javafx.fxml;
+    exports entity;
 }

@@ -1,4 +1,4 @@
-package duyetchamcong.java;
+package home.java;
 
 import entity.DongYeuCauChinhSua;
 import javafx.collections.FXCollections;
@@ -10,7 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
@@ -18,7 +17,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.List;
-import entity.DongYeuCauChinhSua;
 
 public class ViewTruongNhanSuHome {
     private final ObservableList<DongYeuCauChinhSua> data=FXCollections.observableArrayList();
