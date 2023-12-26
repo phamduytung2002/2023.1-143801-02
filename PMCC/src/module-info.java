@@ -8,6 +8,8 @@ module PMCC {
     requires junit;
     requires com.opencsv;
     requires org.apache.poi.ooxml;
+    exports xuatbaocaochamcong.xuatbaocaochamcongcongnhan.Test;
+    requires org.mockito;
     exports login.java to javafx.fxml;
     opens login.java to javafx.fxml;
     exports main.main.java to javafx.graphics;

@@ -12,6 +12,8 @@ public class BanGhiChamCong {
         this.thoiGian = thoiGian;
     }
 
+
+
     public String getID() {
         return ID;
     }
