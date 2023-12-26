@@ -235,7 +235,7 @@ public class ServiceTaoBangBaoCaoNVVP {
             }
         }
         result += tongSoGioLamTrongNgay(somNhatBuoiSang, muonNhatBuoiSang, somNhatBuoiChieu, muonNhatBuoiChieu);
-        
+
         return result;
     }
 }

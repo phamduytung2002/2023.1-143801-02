@@ -26,7 +26,7 @@
          </font>
       </Text>
       <TextField fx:id="thang" layoutX="255.0" layoutY="43.0" prefHeight="25.0" prefWidth="40.0" promptText="MM" />
-      <Button layoutX="435.0" layoutY="43.0" mnemonicParsing="false" text="Xem" fx:id="xemButton" />
+      <Button layoutX="435.0" layoutY="43.0" mnemonicParsing="false" text="Lấy thông tin" fx:id="xemButton" />
       <Text layoutX="310.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="năm">
          <font>
             <Font size="20.0" />
