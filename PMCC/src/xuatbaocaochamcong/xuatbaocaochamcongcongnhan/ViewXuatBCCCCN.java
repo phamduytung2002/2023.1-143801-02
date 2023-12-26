@@ -70,11 +70,15 @@ public class ViewXuatBCCCCN {
 
 
     public Date getThoiGianTu() {
+        if(thoiGianTu==null) return null;
+        else
         if (thoiGianTu.getValue() == null) return null;
         else return java.sql.Date.valueOf(thoiGianTu.getValue());
     }
 
     public Date getThoiGianDen() {
+        if(thoiGianDen==null) return null;
+        else
         if (thoiGianDen.getValue() == null) return null;
         else return java.sql.Date.valueOf(thoiGianDen.getValue());
     }
@@ -115,6 +119,9 @@ public class ViewXuatBCCCCN {
     public void setDialog(String text) {
         dialog.setText(text);
     }
+    public  String getDialog(){
+        return dialog.getText();
+    }
 
     public boolean isCSVButtonSelected() {
         return CSVButton.isSelected();
@@ -124,4 +131,19 @@ public class ViewXuatBCCCCN {
         return ExcelButton.isSelected();
     }
 
+    public void setThoiGianDen(String date) {
+        if(date==null)
+            thoiGianDen=null;
+        else thoiGianDen.setValue(java.sql.Date.valueOf(date).toLocalDate());
+    }
+
+    public void setThoiGianTu(String date) {
+        if(date==null)
+            thoiGianTu=null;
+        else  thoiGianTu.setValue(java.sql.Date.valueOf(date).toLocalDate());
+    }
+
+    public void setTenDonVi(String s) {
+        chonTenDonVi.setValue(s);
+    }
 }

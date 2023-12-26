@@ -36,6 +36,8 @@ public class ControllerXuatBCCCCN extends Application {
     public String tenDonVi;
     public ViewXuatBCCCCN viewXuatBCCCCN;
 
+
+
     public ControllerXuatBCCCCN() throws SQLException, ClassNotFoundException {
         viewXuatBCCCCN = new ViewXuatBCCCCN();
         List<String> listTenDonVi = this.getListTenDonVi();
@@ -80,13 +82,13 @@ public class ControllerXuatBCCCCN extends Application {
         return listTenDonVi;
     }
 
-    private boolean checkValidDate() {
+    public boolean checkValidDate() {
         Date thoiGianTu = viewXuatBCCCCN.getThoiGianTu();
         Date thoiGianDen = viewXuatBCCCCN.getThoiGianDen();
         return !thoiGianTu.after(thoiGianDen);
     }
 
-    private boolean checkValidDV() {
+    public boolean checkValidDV() {
         return !Objects.equals(viewXuatBCCCCN.getTenDonVi(), "");
     }
 
@@ -130,7 +132,7 @@ public class ControllerXuatBCCCCN extends Application {
             ExcelXuatBaoCaoClicked();
             viewXuatBCCCCN.setDialog("Xuất báo cáo thành công");
         }
-        if (viewXuatBCCCCN.isCSVButtonSelected() == false && viewXuatBCCCCN.isExcelButtonSelected() == false) {
+        if (!viewXuatBCCCCN.isCSVButtonSelected() && !viewXuatBCCCCN.isExcelButtonSelected()) {
             viewXuatBCCCCN.setDialog("Vui lòng chọn định dạng xuất báo cáo");
         }
     }
@@ -285,4 +287,15 @@ public class ControllerXuatBCCCCN extends Application {
         launch(args);
     }
 
+    public void setThoiGianDen(String date) {
+        viewXuatBCCCCN.setThoiGianDen(date);
+    }
+
+    public void setThoiGianTu(String date) {
+        viewXuatBCCCCN.setThoiGianTu(date);
+    }
+
+    public void setTenDonVi(String s) {
+        viewXuatBCCCCN.setTenDonVi(s);
+    }
 }
