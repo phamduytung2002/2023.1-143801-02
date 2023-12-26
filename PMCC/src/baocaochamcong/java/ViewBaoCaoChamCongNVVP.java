@@ -65,11 +65,6 @@ public class ViewBaoCaoChamCongNVVP {
     }
 
     public void updateBangBaoCao(List<DongBaoCaoNVVP> listDongBaoCaoNVVP) {
-        // TableView setup
-//        bangBaoCao = new TableView<>();
-
-
-        // Set data to columns
         ObservableList<DongBaoCaoNVVP> observableList = FXCollections.observableArrayList(listDongBaoCaoNVVP);
 
         bangBaoCao.setItems(observableList);
@@ -81,10 +76,6 @@ public class ViewBaoCaoChamCongNVVP {
         soGioMuonSomColumn.setCellValueFactory(new PropertyValueFactory<>("soGioDiMuonVeSom"));
 
         bangBaoCao.refresh();
-//
-//        // Set data to TableView
-//        bangBaoCao.setItems(FXCollections.observableArrayList(listDongBaoCaoNVVP));
-//        bangBaoCao.refresh();
     }
 
     public AnchorPane getContent() {
@@ -107,4 +98,11 @@ public class ViewBaoCaoChamCongNVVP {
         content.getChildren().set(0, this.content);
     }
 
+    public void baoLoiDinhDang(){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("");
+        alert.setHeaderText("Thời gian nhập vào không hợp lệ");
+        alert.setContentText("Vui lòng kiểm tra lại dữ liệu nhập vào");
+        alert.showAndWait();
+    }
 }

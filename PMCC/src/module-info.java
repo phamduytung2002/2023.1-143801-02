@@ -14,4 +14,5 @@ module PMCC {
     exports login.test to junit;
     opens baocaochamcong.java to javafx.fxml;
     opens entity to javafx.base;
+    exports baocaochamcong.test to junit;
 }

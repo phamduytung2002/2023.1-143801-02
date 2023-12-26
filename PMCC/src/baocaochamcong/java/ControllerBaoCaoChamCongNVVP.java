@@ -32,12 +32,8 @@ public class ControllerBaoCaoChamCongNVVP {
     }
 
     private void updateBangBaoCao(String thang, String nam){
-        if(! checkValue(thang, nam)){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("");
-            alert.setHeaderText("Thời gian nhập vào không hợp lệ");
-            alert.setContentText("Vui lòng kiểm tra lại dữ liệu nhập vào");
-            alert.showAndWait();
+        if(!checkValue(thang, nam)){
+            viewBaoCaoChamCongNVVP.baoLoiDinhDang();
         } else{
             int thangInt = Integer.parseInt(thang);
             int namInt = Integer.parseInt(nam);

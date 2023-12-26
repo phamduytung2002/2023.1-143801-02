@@ -7,6 +7,7 @@ import entity.DongBaoCaoNVVP;
 import entity.ThongTinNhanSu;
 
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Comparator;
 import java.util.List;
 
@@ -21,18 +22,23 @@ public class ServiceTaoBangBaoCaoNVVP {
     }
 
     public DongBaoCaoNVVP getDongBaoCao(ThongTinNhanSu ttns, int thang, int nam){
-        String id = ttns.getID();
-        DBBanGhiChamCong dbBanGhiChamCong = new DBBanGhiChamCong();
-        List<BanGhiChamCong> listBanGhiChamCong = dbBanGhiChamCong.queryByIDThangNam(id, thang, nam);
-        DongBaoCaoNVVP dong = new DongBaoCaoNVVP();
-        dong.setID(id);
-        dong.setThang(thang);
-        dong.setDonVi(ttns.getBoPhanLamViec());
-        dong.setHoTen(ttns.getHoTen());
-        dong.setSoBuoiLam(tongSoBuoiLam(listBanGhiChamCong));
-        dong.setSoGioDiMuonVeSom(tongSoGioDiMuonVeSom(listBanGhiChamCong));
-        dbBanGhiChamCong.close();
-        return dong;
+        try{
+            String id = ttns.getID();
+            DBBanGhiChamCong dbBanGhiChamCong = new DBBanGhiChamCong();
+            List<BanGhiChamCong> listBanGhiChamCong = dbBanGhiChamCong.queryByIDThangNam(id, thang, nam);
+            DongBaoCaoNVVP dong = new DongBaoCaoNVVP();
+            dong.setID(id);
+            dong.setThang(thang);
+            dong.setDonVi(ttns.getBoPhanLamViec());
+            dong.setHoTen(ttns.getHoTen());
+            dong.setSoBuoiLam(tongSoBuoiLam(listBanGhiChamCong));
+            dong.setSoGioDiMuonVeSom(tongSoGioDiMuonVeSom(listBanGhiChamCong));
+            dbBanGhiChamCong.close();
+            return dong;
+        } catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     private int tongSoBuoiLam(List<BanGhiChamCong> listBanGhiChamCong){
@@ -77,11 +83,10 @@ public class ServiceTaoBangBaoCaoNVVP {
         }
         result += tongKetSoBuoiTrongNgay(somNhatBuoiSang, muonNhatBuoiSang, somNhatBuoiChieu, muonNhatBuoiChieu);
 
-        System.out.println(result);
-
         return result;
     }
-    private double tongSoGioDiMuonVeSom(List<BanGhiChamCong> listBanGhiChamCong){
+
+    private double tongSoGioDiMuonVeSom(List<BanGhiChamCong> listBanGhiChamCong) throws Exception {
         double result = 0;
         listBanGhiChamCong.sort(new Comparator<BanGhiChamCong>() {
             @Override
@@ -123,38 +128,63 @@ public class ServiceTaoBangBaoCaoNVVP {
         }
         result += tongKetSoGioDiMuonVeSom(somNhatBuoiSang, muonNhatBuoiSang, somNhatBuoiChieu, muonNhatBuoiChieu);
 
-        System.out.println(result);
 
         return result;
+    }
+
+    boolean kiemTraBuoi(LocalTime somNhatBuoi, LocalTime muonNhatBuoi){
+        return somNhatBuoi.isBefore(muonNhatBuoi);
     }
 
     int tongKetSoBuoiTrongNgay(LocalTime somNhatBuoiSang, LocalTime muonNhatBuoiSang, LocalTime somNhatBuoiChieu, LocalTime muonNhatBuoiChieu){
-        int result = 0;
-        if(somNhatBuoiSang.isBefore(muonNhatBuoiSang)){
-            result++;
-        }
-        if(somNhatBuoiChieu.isBefore(muonNhatBuoiChieu)){
-            result++;
-        }
-        return result;
+        int diBuoiSang = kiemTraBuoi(somNhatBuoiSang, muonNhatBuoiSang) ? 1 : 0;
+        int diBuoiChieu = kiemTraBuoi(somNhatBuoiChieu, muonNhatBuoiChieu) ? 1 : 0;
+        return diBuoiSang + diBuoiChieu;
     }
 
-    double tongKetSoGioDiMuonVeSom(LocalTime somNhatBuoiSang, LocalTime muonNhatBuoiSang, LocalTime somNhatBuoiChieu, LocalTime muonNhatBuoiChieu){
-        double deltaSang = 0;
-        if(somNhatBuoiSang.isBefore(muonNhatBuoiSang)){
-            deltaSang += somNhatBuoiSang.getHour() - Constant.GIO_BAT_DAU_LAM_CA_SANG.getHour();
-            deltaSang += ((double)somNhatBuoiSang.getMinute() - Constant.GIO_BAT_DAU_LAM_CA_SANG.getMinute())/60;
-            deltaSang += Constant.GIO_KET_THUC_LAM_CA_SANG.getHour() - muonNhatBuoiSang.getHour();
-            deltaSang += ((double)Constant.GIO_KET_THUC_LAM_CA_SANG.getMinute() - muonNhatBuoiSang.getMinute())/60;
+    public double soGioDiMuonVeSomTrongBuoi(String buoi, LocalTime somNhatBuoi, LocalTime muonNhatBuoi) throws Exception {
+        if(buoi.equals("Sang") && somNhatBuoi.isAfter(Constant.RANH_GIOI_SANG_CHIEU)) throw new Exception(){
+            @Override
+            public String getMessage() {
+                return "Thời gian nhập vào không hợp lệ!";
+            }
+        };
+
+        if(buoi.equals("Chieu") && muonNhatBuoi.isBefore(Constant.RANH_GIOI_SANG_CHIEU)) throw new Exception(){
+            @Override
+            public String getMessage() {
+                return "Thời gian nhập vào không hợp lệ!";
+            }
+        };
+
+        LocalTime gioBatDauCa, gioKetThucCa;
+        if(buoi.equals("Sang")){
+            gioBatDauCa = Constant.GIO_BAT_DAU_LAM_CA_SANG;
+            gioKetThucCa = Constant.GIO_KET_THUC_LAM_CA_SANG;
+        } else if(buoi.equals("Chieu")){
+            gioBatDauCa = Constant.GIO_BAT_DAU_LAM_CA_CHIEU;
+            gioKetThucCa = Constant.GIO_KET_THUC_LAM_CA_CHIEU;
+        } else throw new Exception(){
+            @Override
+            public String getMessage() {
+                return "Buổi nhập vào không hợp lệ!";
+            }
+        };
+        if(somNhatBuoi.isBefore(muonNhatBuoi)){
+            long soPhutDiMuon = 0, soPhutVeSom = 0;
+
+            boolean coDiMuon = gioBatDauCa.isBefore(somNhatBuoi);
+            if(coDiMuon) soPhutDiMuon = ChronoUnit.MINUTES.between(gioBatDauCa, somNhatBuoi);
+
+            boolean coVeSom = muonNhatBuoi.isBefore(gioKetThucCa);
+            if(coVeSom) soPhutVeSom = ChronoUnit.MINUTES.between(muonNhatBuoi, gioKetThucCa);
+
+            return ((double) soPhutDiMuon + soPhutVeSom)/60.;
         }
-        double deltaChieu = Math.max(deltaSang, 0);
-        if(somNhatBuoiChieu.isBefore(muonNhatBuoiChieu)){
-            deltaChieu += somNhatBuoiChieu.getHour() - Constant.GIO_BAT_DAU_LAM_CA_CHIEU.getHour();
-            deltaChieu += ((double)somNhatBuoiChieu.getMinute() - Constant.GIO_BAT_DAU_LAM_CA_CHIEU.getMinute())/60;
-            deltaChieu += Constant.GIO_KET_THUC_LAM_CA_CHIEU.getHour() - muonNhatBuoiChieu.getHour();
-            deltaChieu += ((double)Constant.GIO_KET_THUC_LAM_CA_CHIEU.getMinute() - muonNhatBuoiSang.getMinute())/60;
-        }
-        deltaChieu = Math.max(deltaSang, 0);
-        return deltaChieu + deltaSang;
+        else return 0;
+    }
+
+    double tongKetSoGioDiMuonVeSom(LocalTime somNhatBuoiSang, LocalTime muonNhatBuoiSang, LocalTime somNhatBuoiChieu, LocalTime muonNhatBuoiChieu) throws Exception {
+        return soGioDiMuonVeSomTrongBuoi("Sang", somNhatBuoiSang, muonNhatBuoiSang) + soGioDiMuonVeSomTrongBuoi("Chieu", somNhatBuoiChieu, muonNhatBuoiChieu);
     }
 }
