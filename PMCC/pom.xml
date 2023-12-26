@@ -96,7 +96,6 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
-<<<<<<< HEAD
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -107,9 +106,6 @@
             <artifactId>mockito-core</artifactId>
             <version>4.0.0</version>
         </dependency>
-=======
-
->>>>>>> origin/tung3
     </dependencies>
 
     <build>

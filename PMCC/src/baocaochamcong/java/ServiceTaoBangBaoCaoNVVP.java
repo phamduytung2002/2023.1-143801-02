@@ -187,4 +187,55 @@ public class ServiceTaoBangBaoCaoNVVP {
     double tongKetSoGioDiMuonVeSom(LocalTime somNhatBuoiSang, LocalTime muonNhatBuoiSang, LocalTime somNhatBuoiChieu, LocalTime muonNhatBuoiChieu) throws Exception {
         return soGioDiMuonVeSomTrongBuoi("Sang", somNhatBuoiSang, muonNhatBuoiSang) + soGioDiMuonVeSomTrongBuoi("Chieu", somNhatBuoiChieu, muonNhatBuoiChieu);
     }
+
+    double tongSoGioLamTrongNgay(LocalTime somNhatBuoiSang, LocalTime muonNhatBuoiSang, LocalTime somNhatBuoiChieu, LocalTime muonNhatBuoiChieu){
+        double soGioLamBuoiSang = Math.max(0, ((double) ChronoUnit.MINUTES.between(somNhatBuoiSang, muonNhatBuoiSang)) / 60.);
+        double soGioLamBuoiChieu = Math.max(0, ((double) ChronoUnit.MINUTES.between(somNhatBuoiChieu, muonNhatBuoiChieu)) / 60.);
+        return soGioLamBuoiSang + soGioLamBuoiChieu;
+    }
+
+    private double tongSoGioLamViec(List<BanGhiChamCong> listBanGhiChamCong) throws Exception {
+        double result = 0;
+        listBanGhiChamCong.sort(new Comparator<BanGhiChamCong>() {
+            @Override
+            public int compare(BanGhiChamCong o1, BanGhiChamCong o2) {
+                return o1.getThoiGian().compareTo(o2.getThoiGian());
+            }
+        });
+
+        LocalTime somNhatBuoiSang = Constant.GIO_KET_THUC_LAM_CA_SANG;
+        LocalTime muonNhatBuoiSang = Constant.GIO_BAT_DAU_LAM_CA_SANG;
+        LocalTime somNhatBuoiChieu = Constant.GIO_KET_THUC_LAM_CA_CHIEU;
+        LocalTime muonNhatBuoiChieu = Constant.GIO_BAT_DAU_LAM_CA_CHIEU;
+
+        int currentDay = -1;
+        for(BanGhiChamCong x: listBanGhiChamCong){
+            int day = x.getDay();
+            LocalTime thoiGianTrongNgay = x.getThoiGianTrongNgay();
+            if(day != currentDay){
+                currentDay = day;
+                result += tongSoGioLamTrongNgay(somNhatBuoiSang, muonNhatBuoiSang, somNhatBuoiChieu, muonNhatBuoiChieu);
+                somNhatBuoiSang = Constant.GIO_KET_THUC_LAM_CA_SANG;
+                muonNhatBuoiSang = Constant.GIO_BAT_DAU_LAM_CA_SANG;
+                somNhatBuoiChieu = Constant.GIO_KET_THUC_LAM_CA_CHIEU;
+                muonNhatBuoiChieu = Constant.GIO_BAT_DAU_LAM_CA_CHIEU;
+            }
+            if(thoiGianTrongNgay.isBefore(Constant.RANH_GIOI_SANG_CHIEU)){
+                if(thoiGianTrongNgay.isBefore(somNhatBuoiSang)){
+                    somNhatBuoiSang = thoiGianTrongNgay;
+                } else if(thoiGianTrongNgay.isAfter(muonNhatBuoiSang)){
+                    muonNhatBuoiSang = thoiGianTrongNgay;
+                }
+            } else {
+                if(thoiGianTrongNgay.isBefore(somNhatBuoiChieu)){
+                    somNhatBuoiChieu = thoiGianTrongNgay;
+                } else if(thoiGianTrongNgay.isAfter(muonNhatBuoiChieu)){
+                    muonNhatBuoiChieu = thoiGianTrongNgay;
+                }
+            }
+        }
+        result += tongSoGioLamTrongNgay(somNhatBuoiSang, muonNhatBuoiSang, somNhatBuoiChieu, muonNhatBuoiChieu);
+        
+        return result;
+    }
 }
