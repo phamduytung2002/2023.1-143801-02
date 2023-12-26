@@ -9,6 +9,9 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 
 import java.io.IOException;
 
@@ -20,10 +23,16 @@ public class ViewYeuCauChinhSuaChamCongNVVP {
     private DatePicker DateBaoCao;
 
     @FXML
-    private ChoiceBox ChoicePane;
+    private ChoiceBox LoaiYeuCau;
 
     @FXML
-    private TextArea TextPane;
+    private TextArea ChiTietYeuCau;
+
+    @FXML
+    private TextArea MaSoNV;
+
+    @FXML
+    private TextArea MinhChung;
 
     private Parent root;
 
@@ -58,12 +67,36 @@ public class ViewYeuCauChinhSuaChamCongNVVP {
         return root;
     }
 
+    void initialize() {
+        ObservableList<String> choices = FXCollections.observableArrayList("Thêm", "Xóa");
+        LoaiYeuCau.setItems(choices);
+    }
+
     void setClickConfirm(EventHandler<MouseEvent> eventHandler){
         confirmButton.setOnMouseClicked(eventHandler);
     }
 
-    void getDateBaoCao(EventHandler<MouseEvent> eventHandler){
-        DateBaoCao.setOnMouseClicked(eventHandler);
+    String getDateBaoCao(){
+        return DateBaoCao.getValue().toString();
     }
 
+
+    String getLoaiYeuCau(){
+        return LoaiYeuCau.getValue().toString();
+    }
+
+    String getChiTietYeuCau(){
+        return ChiTietYeuCau.getText();
+    }
+
+    String getMaSoNV(){
+        return MaSoNV.getText();
+    }
+
+    String getMinhChung(){
+        return MinhChung.getText();
+    }
+
+    public void showAndWait() {
+    }
 }
