@@ -103,7 +103,6 @@ public class ViewTruongNhanSuHome {
 
     void updateBang(List<DongYeuCauChinhSua> listDongYeuCauChinhSua){
         ObservableList<DongYeuCauChinhSua> observableList = FXCollections.observableArrayList(listDongYeuCauChinhSua);
-
         bangYeuCauChinhSua.setItems(observableList);
         idColumn.setCellValueFactory(celldata->celldata.getValue().getMaNV());
         hoTenColumn.setCellValueFactory(celldata->celldata.getValue().getHoTen());

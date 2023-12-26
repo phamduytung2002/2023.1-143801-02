@@ -68,7 +68,7 @@ public class ViewXemYeuCauChinhSua{
     public Parent getRoot(){
         return root;
     }
-    private final ObservableList<DongYeuCauChinhSua> data= FXCollections.observableArrayList();
+    public final ObservableList<DongYeuCauChinhSua> data= FXCollections.observableArrayList();
     @FXML
     public void initialize() {
         idColumn.setCellValueFactory(celldata->celldata.getValue().getMaNV());
@@ -79,10 +79,14 @@ public class ViewXemYeuCauChinhSua{
         bangYeuCauChinhSua.setItems(data);
         data.add(new DongYeuCauChinhSua("Phạm Duy Tùng","20200573","Chỉnh sửa thông tin","Sai chức vụ","file:///C:/Users/Pham%20Duy%20Tung/Desktop/PMCC/src/duyetchamcong/resources/MinhChung1.png"));
     }
+    public void updateTable(ObservableList<DongYeuCauChinhSua> data){
+        this.data.clear();
+        this.data.addAll(data);
+    }
     void setClickDuyetYeuCau(EventHandler<MouseEvent> eventHandler){
         bangYeuCauChinhSua.setOnMouseClicked(eventHandler);
     }
-    ViewXemYeuCauChinhSua(){
+    public ViewXemYeuCauChinhSua(){
         loader = new FXMLLoader(getClass().getResource("/duyetchamcong/resources/UIxemyeucauchinhsua.fxml"));
         try {
             loader.setController(this);

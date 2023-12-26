@@ -36,7 +36,13 @@ public class ControllerXemYeuCauChinhSua {
     ControllerXemYeuCauChinhSua(){
         viewXemYeuCauChinhSua = new ViewXemYeuCauChinhSua();
         controllerDuyetYeuCau = new ControllerDuyetYeuCau();
+        UpdateTable updateTable = new UpdateTable();
         viewXemYeuCauChinhSua.initialize();
+        ObservableList<DongYeuCauChinhSua> data= FXCollections.observableArrayList();
+        data.add(new DongYeuCauChinhSua("Phạm Duy Tùng","20200573","Chỉnh sửa thông tin","Sai chức vụ","file:///C:/Users/Pham%20Duy%20Tung/Desktop/PMCC/src/duyetchamcong/resources/MinhChung1.png"));
+        data.add(new DongYeuCauChinhSua("Do Duc Manh","20200543","Thêm thông tin","Mải ngủ","file:///C://Desktop/PMCC/src/duyetchamcong/resources/MinhChung12.png"));
+        updateTable.resetTable(viewXemYeuCauChinhSua.data,data);
+//        viewXemYeuCauChinhSua.updateTable(data);
         viewXemYeuCauChinhSua.setClickDuyetYeuCau(event -> {
             controllerDuyetYeuCau.showView();
         });
