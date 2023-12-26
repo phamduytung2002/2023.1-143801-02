@@ -33,7 +33,7 @@ public class ServiceTaoBangBaoCaoNVVP {
             dong.setHoTen(ttns.getHoTen());
             dong.setSoBuoiLam(tongSoBuoiLam(listBanGhiChamCong));
             dong.setSoGioDiMuonVeSom(tongSoGioDiMuonVeSom(listBanGhiChamCong));
-            dbBanGhiChamCong.close();
+//            dbBanGhiChamCong.close();
             return dong;
         } catch(Exception e){
             e.printStackTrace();
@@ -194,7 +194,7 @@ public class ServiceTaoBangBaoCaoNVVP {
         return soGioLamBuoiSang + soGioLamBuoiChieu;
     }
 
-    private double tongSoGioLamViec(List<BanGhiChamCong> listBanGhiChamCong) throws Exception {
+    public double tongSoGioLamViec(List<BanGhiChamCong> listBanGhiChamCong) throws Exception {
         double result = 0;
         listBanGhiChamCong.sort(new Comparator<BanGhiChamCong>() {
             @Override

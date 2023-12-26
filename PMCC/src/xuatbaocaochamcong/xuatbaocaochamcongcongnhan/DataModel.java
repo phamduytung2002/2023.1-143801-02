@@ -22,24 +22,31 @@ public class DataModel {
         this.GioTangCa.set(GioTangCa);
 
     }
+
     public StringProperty getHoVaTen() {
         return HoVaTen;
     }
+
     public StringProperty getMaNV() {
         return MaNV;
     }
+
     public StringProperty getDonVi() {
         return DonVi;
     }
+
     public StringProperty getThang() {
         return Thang;
     }
+
     public StringProperty getNam() {
         return Nam;
     }
+
     public StringProperty getGioLamViec() {
         return GioLamViec;
     }
+
     public StringProperty getGioTangCa() {
         return GioTangCa;
     }
