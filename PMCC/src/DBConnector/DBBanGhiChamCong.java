@@ -37,7 +37,7 @@ public class DBBanGhiChamCong extends DBConnector{
     public void insertData(String ID, Date thoiGian) {
         Document document = new Document("ID", ID)
                 .append("Thời gian", thoiGian);
-        this.insertData(document);
+        this.insertData((List<Document>) document);
     }
 
     public static void main(String[] args) {
