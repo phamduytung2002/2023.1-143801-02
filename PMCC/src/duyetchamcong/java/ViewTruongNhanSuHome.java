@@ -18,8 +18,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.List;
+import entity.DongYeuCauChinhSua;
 
 public class ViewTruongNhanSuHome {
+    private final ObservableList<DongYeuCauChinhSua> data=FXCollections.observableArrayList();
     @FXML
     private StackPane xemBaoCaoChamCongPane;
 
@@ -34,31 +36,26 @@ public class ViewTruongNhanSuHome {
     private Stage stage  = new Stage();
 
     @FXML
-    private AnchorPane modifiablePane;
-
-    @FXML
     private TableView<DongYeuCauChinhSua> bangYeuCauChinhSua;
 
     @FXML
-    private TableColumn<?, ?> hoTenColumn;
+    private TableColumn<DongYeuCauChinhSua, String> hoTenColumn;
 
     @FXML
-    private TableColumn<?, ?> idColumn;
+    private TableColumn<DongYeuCauChinhSua, String>idColumn;
 
     @FXML
-    private TableColumn<?, ?> liDoColumn;
+    private TableColumn<DongYeuCauChinhSua, String> liDoColumn;
 
     @FXML
-    private TableColumn<?, ?> minhChungColumn;
+    private TableColumn<DongYeuCauChinhSua, String> minhChungColumn;
 
     @FXML
     private AnchorPane modifiablePane;
 
-    @FXML
-    private TableColumn<?, ?> sttColumn;
 
     @FXML
-    private TableColumn<?, ?> yeuCauColumn;
+    private TableColumn<DongYeuCauChinhSua, String> yeuCauColumn;
 
     ViewTruongNhanSuHome(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/duyetchamcong/resources/UItruongnhansu.fxml"));
@@ -108,15 +105,19 @@ public class ViewTruongNhanSuHome {
         ObservableList<DongYeuCauChinhSua> observableList = FXCollections.observableArrayList(listDongYeuCauChinhSua);
 
         bangYeuCauChinhSua.setItems(observableList);
-        sttColumn.setCellValueFactory(new PropertyValueFactory<>("stt"));
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("ID"));
-        hoTenColumn.setCellValueFactory(new PropertyValueFactory<>("hoTen"));
-        liDoColumn.setCellValueFactory(new PropertyValueFactory<>("lyDo"));
-        yeuCauColumn.setCellValueFactory(new PropertyValueFactory<>("yeuCau"));
-        minhChungColumn.setCellValueFactory(new PropertyValueFactory<>("minhChung"));
+        idColumn.setCellValueFactory(celldata->celldata.getValue().getMaNV());
+        hoTenColumn.setCellValueFactory(celldata->celldata.getValue().getHoTen());
+        yeuCauColumn.setCellValueFactory(celldata->celldata.getValue().getYeuCau());
+        liDoColumn.setCellValueFactory(celldata->celldata.getValue().getLiDo());
+        minhChungColumn.setCellValueFactory(celldata->celldata.getValue().getMinhChung());
+       bangYeuCauChinhSua.setItems(data);
+       data.add(new DongYeuCauChinhSua("Phạm Duy Tùng","20200573","Chỉnh sửa thông tin","Sai chức vụ","file:///C:/Users/Pham%20Duy%20Tung/Desktop/PMCC/src/duyetchamcong/resources/MinhChung1.png"));
+//        bangYeuCauChinhSua.refresh();
 
-        bangYeuCauChinhSua.refresh();
+    }
 
+    AnchorPane getContent() {
+        return modifiablePane;
     }
 }
 

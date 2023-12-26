@@ -18,19 +18,18 @@
         </Text>
         <TableView fx:id="bangYeuCauChinhSua" layoutX="27.0" layoutY="88.0" prefHeight="276.0" prefWidth="398.0" style="-fx-background-radius: 10px;">
           <columns>
-            <TableColumn fx:id="sttColumn" prefWidth="21.5999755859375" text="STT" />
-            <TableColumn fx:id="hoTenColumn" minWidth="0.0" prefWidth="103.20001602172852" text="Họ Tên" />
+            <TableColumn fx:id="hoTenColumn" minWidth="0.0" prefWidth="46.40003204345703" text="Họ Tên" />
               <TableColumn fx:id="idColumn" minWidth="0.0" prefWidth="67.199951171875" text="Mã NV" />
-              <TableColumn fx:id="liDoColumn" minWidth="0.0" prefWidth="77.60002136230469" text="Lí do" />
-              <TableColumn fx:id="yeuCauColumn" minWidth="0.0" prefWidth="39.20001220703125" text="Yêu Cầu" />
-              <TableColumn fx:id="minhChungColumn" minWidth="0.0" prefWidth="100.79998779296875" text="Minh Chứng" />
+              <TableColumn fx:id="liDoColumn" minWidth="0.0" prefWidth="115.20001220703125" text="Lí do" />
+              <TableColumn fx:id="yeuCauColumn" minWidth="0.0" prefWidth="60.79998779296875" text="Yêu Cầu" />
+              <TableColumn fx:id="minhChungColumn" minWidth="0.0" prefWidth="98.4000244140625" text="Minh Chứng" />
           </columns>
            <columnResizePolicy>
               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
            </columnResizePolicy>
         </TableView>
-      <Button layoutX="306.0" layoutY="49.0" mnemonicParsing="false" style="-fx-background-color: blue; -fx-text-fill: white;" text="Home" />
-      <Button layoutX="370.0" layoutY="49.0" mnemonicParsing="false" style="-fx-background-color: blue; -fx-text-fill: white;" text="Logout" />
+      <Button fx:id="homeButton" layoutX="306.0" layoutY="49.0" mnemonicParsing="false" style="-fx-background-color: blue; -fx-text-fill: white;" text="Home" />
+      <Button fx:id="logoutButton" layoutX="370.0" layoutY="49.0" mnemonicParsing="false" style="-fx-background-color: blue; -fx-text-fill: white;" text="Logout" />
 <!--      <Avatar layoutX="20.0" layoutY="14.0" style="-charm-radius: 20px;">-->
 <!--         <image>-->
 <!--            <Image url="@images.jpg" />-->
