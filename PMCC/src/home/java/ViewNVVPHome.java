@@ -1,4 +1,4 @@
-package com.home;
+package home.java;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -44,7 +44,7 @@ public class ViewNVVPHome {
 
 
     ViewNVVPHome(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("UINVVP.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/home/resources/UINVVP.fxml"));
         try {
             loader.setController(this);
             root = loader.load();

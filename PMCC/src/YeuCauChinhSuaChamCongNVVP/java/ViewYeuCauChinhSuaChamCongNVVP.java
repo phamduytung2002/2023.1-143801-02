@@ -1,4 +1,4 @@
-package com.YeuCauChinhSuaChamCongNVVP;
+package YeuCauChinhSuaChamCongNVVP.java;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -42,7 +42,7 @@ public class ViewYeuCauChinhSuaChamCongNVVP {
     private AnchorPane modifiablePane;
 
     ViewYeuCauChinhSuaChamCongNVVP(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("yeucauchinhsuachamcongNVVP.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/YeuCauChinhSuaChamCongNVVP/resources/yeucauchinhsuachamcongNVVP.fxml"));
         try {
             loader.setController(this);
             root = loader.load();
@@ -63,10 +63,6 @@ public class ViewYeuCauChinhSuaChamCongNVVP {
         stage.close();
     }
 
-    Parent getRoot(){
-        return root;
-    }
-
     void initialize() {
         ObservableList<String> choices = FXCollections.observableArrayList("Thêm", "Xóa");
         LoaiYeuCau.setItems(choices);
@@ -79,7 +75,6 @@ public class ViewYeuCauChinhSuaChamCongNVVP {
     String getDateBaoCao(){
         return DateBaoCao.getValue().toString();
     }
-
 
     String getLoaiYeuCau(){
         return LoaiYeuCau.getValue().toString();

@@ -1,4 +1,4 @@
-package com.DBConnector;
+package DBConnector.java;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
@@ -55,12 +55,5 @@ public class DBConnector {
         } catch (MongoException e) {
             e.printStackTrace();
         }
-    }
-
-    public static void main(String[] args) {
-        // Example usage
-        DBConnector connector = new DBConnector("ChamCong", "Ban ghi cham cong");
-        connector.insertData(new Document("key", "value"));
-        connector.getData();
     }
 }

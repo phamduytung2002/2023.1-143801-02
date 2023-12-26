@@ -1,21 +1,18 @@
-package com.YeuCauChinhSuaChamCongNVVP;
+package YeuCauChinhSuaChamCongNVVP.java;
 
-import com.DBConnector.DBConnector;
+import DBConnector.java.DBConnector;
 import javafx.scene.control.Alert;
 import org.bson.Document;
 
 public class ControllerYeuCauChinhSuaChamCongNVVP {
-    private ViewYeuCauChinhSuaChamCongNVVP viewYeuCauChinhSuaChamCongNVVP;
-    private DBConnector dbConnector;
+    public ViewYeuCauChinhSuaChamCongNVVP viewYeuCauChinhSuaChamCongNVVP;
+    public DBConnector dbConnector;
     public ControllerYeuCauChinhSuaChamCongNVVP(){
         viewYeuCauChinhSuaChamCongNVVP = new ViewYeuCauChinhSuaChamCongNVVP();
         viewYeuCauChinhSuaChamCongNVVP.initialize();
         viewYeuCauChinhSuaChamCongNVVP.setClickConfirm(event -> {
             loadBaoCao();
         });
-    }
-
-    public ControllerYeuCauChinhSuaChamCongNVVP(ViewYeuCauChinhSuaChamCongNVVP view, DBConnector dbConnector) {
     }
 
     public void loadBaoCao(){

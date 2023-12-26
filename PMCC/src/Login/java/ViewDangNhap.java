@@ -1,4 +1,4 @@
-package com.Login;
+package Login.java;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 
 public class ViewDangNhap {
-    final URL resourceUrl = getClass().getResource("dangnhap.fxml");
+    final URL resourceUrl = getClass().getResource("/login/resources/dangnhap.fxml");
     @FXML
     private Button dangNhapButton ;
 
@@ -30,7 +30,7 @@ public class ViewDangNhap {
 
     Stage stage  = new Stage();
     ViewDangNhap(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("dangnhap.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/login/resources/dangnhap.fxml"));
         try {
             loader.setController(this);
             root = loader.load();

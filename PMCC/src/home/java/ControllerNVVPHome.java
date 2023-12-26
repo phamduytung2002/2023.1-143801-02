@@ -1,11 +1,6 @@
-package com.home;
+package home.java;
 
-import com.YeuCauChinhSuaChamCongNVVP.ControllerYeuCauChinhSuaChamCongNVVP;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-
-
-import java.io.IOException;
+import YeuCauChinhSuaChamCongNVVP.java.ControllerYeuCauChinhSuaChamCongNVVP;
 
 public class ControllerNVVPHome {
     private ViewNVVPHome viewNVVPHome;

@@ -1,6 +1,6 @@
-package com.Login;
+package Login.java;
 
-import com.home.ControllerNVVPHome;
+import home.java.ControllerNVVPHome;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;

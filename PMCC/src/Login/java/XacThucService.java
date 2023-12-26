@@ -1,4 +1,4 @@
-package com.Login;
+package Login.java;
 
 public class XacThucService {
     public static String xacThuc(String tenDangNhap, String matKhau){

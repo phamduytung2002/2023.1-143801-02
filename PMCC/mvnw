@@ -23,11 +23,11 @@
 #
 # Required ENV vars:
 # ------------------
-#   JAVA_HOME - location of a JDK java.com.home dir
+#   JAVA_HOME - location of a JDK java.home dir
 #
 # Optional ENV vars
 # -----------------
-#   M2_HOME - location of maven2's installed java.com.home dir
+#   M2_HOME - location of maven2's installed java.home dir
 #   MAVEN_OPTS - parameters passed to the Java VM when running Maven
 #     e.g. to debug Maven itself, use
 #       set MAVEN_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
@@ -77,7 +77,7 @@ if [ -z "$JAVA_HOME" ] ; then
 fi
 
 if [ -z "$M2_HOME" ] ; then
-  ## resolve links - $0 may be a link to maven's java.com.home
+  ## resolve links - $0 may be a link to maven's java.home
   PRG="$0"
 
   # need this for relative symlinks
