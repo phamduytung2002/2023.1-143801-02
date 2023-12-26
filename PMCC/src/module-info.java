@@ -8,6 +8,11 @@ module PMCC {
     requires junit;
     requires com.opencsv;
     requires org.apache.poi.ooxml;
+    requires org.junit.jupiter.api;
+    opens DBConnector.java to javafx.fxml;
+    exports DBConnector.java;
+    opens YeuCauChinhSuaChamCongNVVP.java to javafx.fxml;
+    exports YeuCauChinhSuaChamCongNVVP.java;
     exports login.java to javafx.fxml;
     opens login.java to javafx.fxml;
     exports main.main.java to javafx.graphics;
@@ -21,4 +26,5 @@ module PMCC {
     exports duyetchamcong.java; // export the package
     exports duyetchamcong.test to junit;
     exports xuatbaocaochamcong.xuatbaocaochamcongcongnhan;
+    opens YeuCauChinhSuaChamCongNVVP.Test to junit;
 }
