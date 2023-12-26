@@ -3,11 +3,15 @@ package duyetchamcong.java;
 import baocaochamcong.java.ControllerBaoCaoChamCongNVVP;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
 public class ControllerTruongNhanSuHome {
     private ViewTruongNhanSuHome viewTruongNhanSuHome;
+    private ControllerXemYeuCauChinhSua controllerXemYeuCauChinhSua;
+    private FXMLLoader loader_view;
+    private  Parent root_view;
     public ControllerTruongNhanSuHome(){
         viewTruongNhanSuHome = new ViewTruongNhanSuHome();
         viewTruongNhanSuHome.setClickBaoCaoChamCong(event -> {
@@ -21,14 +25,15 @@ public class ControllerTruongNhanSuHome {
             }
         });
         viewTruongNhanSuHome.setClickDuyetChamCong(event -> {
-            Parent root = viewTruongNhanSuHome.getRoot();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/duyetchamcong/resources/UIxemyeucauchinhsua.fxml"));
-            try {
-                viewTruongNhanSuHome.getModifiablePane().getChildren().set(0, loader.load());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            controllerXemYeuCauChinhSua = new ControllerXemYeuCauChinhSua();
+            AnchorPane content = viewTruongNhanSuHome.getContent();
+//            controllerXemYeuCauChinhSua.changeContent(content, (p)->{
+//
+//            });
+//            loader_view = controllerXemYeuCauChinhSua.getLoader();
+            controllerXemYeuCauChinhSua.showView();
         });
+
         viewTruongNhanSuHome.setClickTrangChu(event -> {
             Parent root = viewTruongNhanSuHome.getRoot();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/duyetchamcong/resources/hometruongnhansu.fxml"));
@@ -42,5 +47,15 @@ public class ControllerTruongNhanSuHome {
 
     public void showView(){
         viewTruongNhanSuHome.show();
+    }
+
+    public void changeContent(AnchorPane content){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/duyetchamcong/resources/hometruongnhansu.fxml"));
+//        FXMLLoader loader = loader_view;
+        try {
+            content.getChildren().set(0, this.loader_view.load());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

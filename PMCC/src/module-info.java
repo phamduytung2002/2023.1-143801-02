@@ -23,4 +23,7 @@ module PMCC {
     opens baocaochamcong.java to javafx.fxml;
     opens entity to javafx.base;
     exports baocaochamcong.test to junit;
+    // open the package to javafx.fxml
+    exports duyetchamcong.java; // export the package
+    exports duyetchamcong.test to junit;
 }

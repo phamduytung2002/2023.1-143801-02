@@ -34,7 +34,6 @@ public class ViewTruongDVNVVPHome {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     void show() {

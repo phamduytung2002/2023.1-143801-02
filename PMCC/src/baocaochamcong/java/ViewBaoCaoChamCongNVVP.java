@@ -104,4 +104,20 @@ public class ViewBaoCaoChamCongNVVP {
         alert.setContentText("Vui lòng kiểm tra lại dữ liệu nhập vào");
         alert.showAndWait();
     }
+
+    public void baoKhongCoDuLieuNhanVien(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("");
+        alert.setHeaderText("");
+        alert.setContentText("Không có nhân viên");
+        alert.showAndWait();
+    }
+
+    public void baoLoiKetNoi(){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("");
+        alert.setHeaderText("");
+        alert.setContentText("Không kết nối được với hệ thống nhân sự");
+        alert.showAndWait();
+    }
 }

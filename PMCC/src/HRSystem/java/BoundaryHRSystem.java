@@ -2,11 +2,12 @@ package HRSystem.java;
 
 import entity.ThongTinNhanSu;
 
+import java.net.ConnectException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BoundaryHRSystem {
-    public List<ThongTinNhanSu> getThongTinNVVP(){
+    public List<ThongTinNhanSu> getThongTinNVVP() throws ConnectException {
         List<ThongTinNhanSu> ret = new ArrayList<>();
         ret.add(new ThongTinNhanSu("Phạm Duy Tùng", "20200573", "Văn phòng"));
         ret.add(new ThongTinNhanSu("Trương Đăng Biển", "20200063", "Văn phòng"));
