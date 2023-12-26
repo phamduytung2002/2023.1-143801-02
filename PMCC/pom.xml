@@ -96,20 +96,17 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
-<<<<<<< HEAD
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
+            <artifactId>junit-jupiter-engine</artifactId>
             <version>5.8.2</version>
         </dependency>
         <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>4.0.0</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.9.2</version>
+            <scope>compile</scope>
         </dependency>
-=======
-
->>>>>>> origin/tung3
     </dependencies>
 
     <build>

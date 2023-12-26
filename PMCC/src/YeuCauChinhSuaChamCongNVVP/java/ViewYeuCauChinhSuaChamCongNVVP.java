@@ -14,8 +14,12 @@ import javafx.collections.ObservableList;
 
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class ViewYeuCauChinhSuaChamCongNVVP {
+
     @FXML
     private Button confirmButton;
 
@@ -36,7 +40,8 @@ public class ViewYeuCauChinhSuaChamCongNVVP {
 
     private Parent root;
 
-    private Stage stage  = new Stage();
+//    private Stage stage;
+    private Stage stage = new Stage();
 
     @FXML
     private AnchorPane modifiablePane;
@@ -49,7 +54,11 @@ public class ViewYeuCauChinhSuaChamCongNVVP {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
+//        DateBaoCao = new DatePicker();
+//        LoaiYeuCau = new ChoiceBox();
+//        ChiTietYeuCau = new TextArea();
+//        MaSoNV = new TextArea();
+//        MinhChung = new TextArea();
     }
 
     void show() {
@@ -66,6 +75,8 @@ public class ViewYeuCauChinhSuaChamCongNVVP {
     void initialize() {
         ObservableList<String> choices = FXCollections.observableArrayList("Thêm", "Xóa");
         LoaiYeuCau.setItems(choices);
+        LoaiYeuCau.setValue("");
+        DateBaoCao.setValue(LocalDate.of(1970, 1, 1));
     }
 
     void setClickConfirm(EventHandler<MouseEvent> eventHandler){
@@ -76,22 +87,43 @@ public class ViewYeuCauChinhSuaChamCongNVVP {
         return DateBaoCao.getValue().toString();
     }
 
-    String getLoaiYeuCau(){
-        return LoaiYeuCau.getValue().toString();
+    public void setDateBaoCao(String date) {
+        if (isValidDateFormat(date)) {
+            DateBaoCao.setValue(LocalDate.parse(date));
+        } else {
+            DateBaoCao.setValue(LocalDate.of(1970, 1, 1));
+        }
     }
+
+    String getLoaiYeuCau(){ return LoaiYeuCau.getValue().toString(); }
+
+    public void setLoaiYeuCau(String choice){ LoaiYeuCau.setValue(choice); }
 
     String getChiTietYeuCau(){
         return ChiTietYeuCau.getText();
     }
 
+    public void setChiTietYeuCau(String text){ ChiTietYeuCau.setText(text); }
+
     String getMaSoNV(){
         return MaSoNV.getText();
     }
+
+    public void setMaSoNV(String MSNV){ MaSoNV.setText(MSNV); }
 
     String getMinhChung(){
         return MinhChung.getText();
     }
 
-    public void showAndWait() {
+    public void setMinhChung(String minhChung){ MinhChung.setText(minhChung); }
+
+    public boolean isValidDateFormat(String date) {
+        try {
+            LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            return true;
+        } catch (DateTimeParseException e) {
+            return false;
+        }
     }
+
 }

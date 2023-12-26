@@ -7,7 +7,7 @@ module PMCC {
     requires org.mongodb.driver.sync.client;
     requires org.mongodb.bson;
     requires junit;
-
+    requires org.junit.jupiter.api;
 
     opens DBConnector.java to javafx.fxml;
     exports DBConnector.java;
@@ -23,4 +23,6 @@ module PMCC {
     opens baocaochamcong.java to javafx.fxml;
     opens entity to javafx.base;
     exports baocaochamcong.test to junit;
+    opens YeuCauChinhSuaChamCongNVVP.Test to junit;
+
 }
