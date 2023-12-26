@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane dividerPositions="0.19884963023829091" prefHeight="400.0" prefWidth="814.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <VBox layoutX="2.0" prefHeight="400.0" prefWidth="157.0">
+                     <children>
+                        <StackPane fx:id="trangChuPane" prefHeight="97.0" prefWidth="157.0">
+                           <children>
+                              <Text fx:id="TrangChuPane" strokeType="OUTSIDE" strokeWidth="0.0" text="Trang chủ">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </StackPane>
+                        <StackPane prefHeight="100.0" prefWidth="157.0" fx:id="xemBaoCaoChamCongChiTietCuaNVPane">
+                           <children>
+                              <Text cache="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Xem báo cáo chấm công chi tiết" textAlignment="CENTER" wrappingWidth="150.26658630371094">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+          <AnchorPane fx:id="content" accessibleText="fds" minHeight="0.0" minWidth="0.0" prefHeight="397.0" prefWidth="600.0">
+               <children>
+                  <Text fx:id="WelcomePane" layoutX="249.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" wrappingWidth="150.26658630371094">
+                     <font>
+                        <Font size="34.0" />
+                     </font>
+                  </Text>
+                  <DatePicker fx:id="datePicker" layoutX="420.0" layoutY="45.0" />
+                  <Button fx:id="yeuCauChinhSuaButton" layoutX="486.0" layoutY="345.0" mnemonicParsing="false" text="Yêu cầu chính sửa" />
+                  <TableView fx:id="TablePane" layoutX="33.0" layoutY="99.0" prefHeight="200.0" prefWidth="581.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="C1" />
+                      <TableColumn prefWidth="75.0" text="C2" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

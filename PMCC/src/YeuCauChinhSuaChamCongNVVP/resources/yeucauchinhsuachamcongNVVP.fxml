@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="498.0" prefWidth="439.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+      <DatePicker fx:id="DateBaoCao" layoutX="38.0" layoutY="33.0" prefHeight="26.0" prefWidth="362.0" />
+      <TextArea fx:id="ChiTietYeuCau" layoutX="38.0" layoutY="236.0" prefHeight="95.0" prefWidth="362.0" />
+      <ChoiceBox fx:id="LoaiYeuCau" layoutX="38.0" layoutY="168.0" prefHeight="26.0" prefWidth="362.0" />
+      <Button fx:id="confirmButton" layoutX="335.0" layoutY="438.0" mnemonicParsing="false" text="Xác nhận" />
+      <TextArea fx:id="MaSoNV" layoutX="38.0" layoutY="91.0" prefHeight="3.0" prefWidth="362.0" />
+      <TextArea fx:id="MinhChung" layoutX="38.0" layoutY="365.0" prefHeight="38.0" prefWidth="362.0" />
+  </children>
+</AnchorPane>

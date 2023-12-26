@@ -25,6 +25,7 @@ public class ViewDangNhap {
     @FXML
     private TextField tenDangNhap ;
 
+
     Parent root;
 
     Stage stage  = new Stage();
@@ -49,7 +50,7 @@ public class ViewDangNhap {
         stage.show();
     }
 
-    void close(){
+    public void close(){
         stage.close();
     }
 
