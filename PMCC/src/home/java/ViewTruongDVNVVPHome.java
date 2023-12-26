@@ -24,7 +24,7 @@ public class ViewTruongDVNVVPHome {
     private Stage stage  = new Stage();
 
     @FXML
-    private AnchorPane modifiablePane;
+    private AnchorPane content;
 
     ViewTruongDVNVVPHome(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/home/resources/UItruongDVNVVP.fxml"));
@@ -34,7 +34,6 @@ public class ViewTruongDVNVVPHome {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     void show() {
@@ -52,8 +51,8 @@ public class ViewTruongDVNVVPHome {
         return root;
     }
 
-    public AnchorPane getModifiablePane() {
-        return modifiablePane;
+    public AnchorPane getContent() {
+        return this.content;
     }
 
     void setClickBaoCaoChamCong(EventHandler<MouseEvent> eventHandler){

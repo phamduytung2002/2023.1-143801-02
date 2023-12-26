@@ -2,7 +2,7 @@ package home.java;
 
 import baocaochamcong.java.ControllerBaoCaoChamCongNVVP;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
+import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
@@ -13,26 +13,27 @@ public class ControllerTruongDVNVVPHome {
         viewTruongDVNVVPHome = new ViewTruongDVNVVPHome();
         viewTruongDVNVVPHome.setClickBaoCaoChamCong(event -> {
             ControllerBaoCaoChamCongNVVP controllerBaoCaoChamCong = new ControllerBaoCaoChamCongNVVP();
-            Parent root = viewTruongDVNVVPHome.getRoot();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/baocaochamcong/resources/baocaochamcong.fxml"));
-            try {
-                viewTruongDVNVVPHome.getModifiablePane().getChildren().set(0, loader.load());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            AnchorPane content = viewTruongDVNVVPHome.getContent();
+            controllerBaoCaoChamCong.changeContent(content);
         });
+
         viewTruongDVNVVPHome.setClickTrangChu(event -> {
-            Parent root = viewTruongDVNVVPHome.getRoot();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/home/resources/hometruongDVNVVP.fxml"));
-            try {
-                viewTruongDVNVVPHome.getModifiablePane().getChildren().set(0, loader.load());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            ControllerTruongDVNVVPHome controllerTruongDVNVVPHome = new ControllerTruongDVNVVPHome();
+            AnchorPane modifiablePane = viewTruongDVNVVPHome.getContent();
+            controllerTruongDVNVVPHome.changeContent(modifiablePane);
         });
     }
 
     public void showView(){
         viewTruongDVNVVPHome.show();
+    }
+
+    public void changeContent(AnchorPane content){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/home/resources/hometruongDVNVVP.fxml"));
+        try {
+            content.getChildren().set(0, loader.load());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
