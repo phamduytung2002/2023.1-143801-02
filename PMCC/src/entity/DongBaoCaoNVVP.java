@@ -1,13 +1,11 @@
 package entity;
 
-import entity.ThongTinNhanSu;
-
 public class DongBaoCaoNVVP {
-    private String hoTen;
-    private String ID;
-    private String donVi;
-    private int thang;
-    private int soBuoiLam;
+    private final String hoTen;
+    private final String ID;
+    private final String donVi;
+    private final int thang;
+    private final int soBuoiLam;
     private double soGioDiMuonVeSom;
 
     public DongBaoCaoNVVP() {
@@ -25,10 +23,6 @@ public class DongBaoCaoNVVP {
         this.donVi = ttns.getBoPhanLamViec();
         this.thang = thang;
         this.soBuoiLam = soBuoiLam;
-        this.soGioDiMuonVeSom = soGioDiMuonVeSom;
-    }
-
-    public void setSoGioDiMuonVeSom(double soGioDiMuonVeSom) {
         this.soGioDiMuonVeSom = soGioDiMuonVeSom;
     }
 
@@ -54,5 +48,9 @@ public class DongBaoCaoNVVP {
 
     public double getSoGioDiMuonVeSom() {
         return soGioDiMuonVeSom;
+    }
+
+    public void setSoGioDiMuonVeSom(double soGioDiMuonVeSom) {
+        this.soGioDiMuonVeSom = soGioDiMuonVeSom;
     }
 }

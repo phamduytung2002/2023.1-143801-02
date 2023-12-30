@@ -8,14 +8,14 @@ module PMCC {
     requires junit;
     requires com.opencsv;
     requires org.apache.poi.ooxml;
+    requires com.jfoenix;
     exports login.java to javafx.fxml;
     opens login.java to javafx.fxml;
     exports main.main.java to javafx.graphics;
     opens home.java to javafx.fxml;
-    opens duyetchamcong.java to javafx.fxml;
-    exports login.test to junit;
-    opens baocaochamcong.java to javafx.fxml;
+    opens baocaochamcong to javafx.fxml;
     opens entity to javafx.base;
-    exports baocaochamcong.test to junit;
+    exports xuatbaocaochamcong;
+    exports home.java;
     exports xuatbaocaochamcong.xuatbaocaochamcongcongnhan;
 }

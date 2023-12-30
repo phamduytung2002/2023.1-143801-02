@@ -10,9 +10,10 @@ public class XacThucService {
             return "TruongDonViCN";
         else if(tenDangNhap.equals("TVP") && matKhau.isEmpty())
             return "TruongDonViNVVP";
-        else if(tenDangNhap.equals("TruongNhanSu") && matKhau.equals("123456"))
+        else if(tenDangNhap.equals("TruongNhanSu") && matKhau.isEmpty())
             return "TruongNhanSu";
-        
+        else if(tenDangNhap.equals("QuanLyNhanSu") && matKhau.isEmpty())
+            return "QuanLyNhanSu";
         else
             return "";
     }
