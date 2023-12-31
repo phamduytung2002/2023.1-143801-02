@@ -26,11 +26,10 @@
             <JFXButton fx:id="trangchubutton" prefHeight="47.0" prefWidth="210.0" text="Trang Chủ" />
             <JFXButton prefHeight="47.0" prefWidth="210.0" text="Xem báo cáo chấm công" fx:id="xembaocaochamcongbutton" />
             <JFXButton prefHeight="47.0" prefWidth="210.0" text="Xuất báo cáo chấm công" fx:id="xuatbaocaochamcongbutton" />
+            <JFXButton fx:id="nhapthongtinchamcongbutton" layoutX="10.0" layoutY="104.0" prefHeight="47.0" prefWidth="210.0" text="Nhập thông tin chấm công" />
+            <JFXButton layoutX="10.0" layoutY="152.0" prefHeight="47.0" prefWidth="210.0" text="Xem yêu cầu chỉnh sửa chấm công" fx:id="xemyeucauchinhsuachamcongbutton" />
          </children>
       </VBox>
-      <AnchorPane fx:id="content" layoutX="203.0" layoutY="104.0" prefHeight="533.0" prefWidth="725.0">
-         <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" />
-         </children></AnchorPane>
+      <AnchorPane fx:id="content" layoutX="203.0" layoutY="104.0" prefHeight="533.0" prefWidth="725.0" />
    </children>
 </Pane>

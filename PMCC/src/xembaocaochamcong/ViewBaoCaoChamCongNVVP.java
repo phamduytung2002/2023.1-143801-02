@@ -1,4 +1,4 @@
-package baocaochamcong;
+package xembaocaochamcong;
 
 import entity.DongBaoCaoNVVP;
 import javafx.collections.FXCollections;
@@ -6,10 +6,13 @@ import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.util.List;
 
@@ -52,12 +55,15 @@ public class ViewBaoCaoChamCongNVVP {
 
     @FXML
     private TableColumn<?, ?> soGioMuonSomColumn;
-
+    public FXMLLoader loader;
+    public final Parent root;
+    public final Stage stage = new Stage();
+public Button quaylaibutton;
     public ViewBaoCaoChamCongNVVP(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/baocaochamcong/resources/baocaochamcong.fxml"));
+        loader = new FXMLLoader(getClass().getResource("/xembaocaochamcong/resources/xembaocaochamcong.fxml"));
         try {
             loader.setController(this);
-            content = loader.load();
+            root = loader.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -76,15 +82,18 @@ public class ViewBaoCaoChamCongNVVP {
 
         bangBaoCao.refresh();
     }
-
-    public AnchorPane getContent() {
-        return this.content;
+    public void show()
+    {
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
-
     void setOnMouseXemButton(EventHandler<MouseEvent> eventHandler) {
         xemButton.setOnMouseClicked(eventHandler);
     }
-
+    public void setOnMouseQuayLaiButton(EventHandler<MouseEvent> eventHandler) {
+        quaylaibutton.setOnMouseClicked(eventHandler);
+    }
     public String getThang(){
         return thang.getText();
     }

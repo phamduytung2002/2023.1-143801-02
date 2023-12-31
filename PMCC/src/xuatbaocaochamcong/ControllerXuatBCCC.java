@@ -7,7 +7,7 @@ import xuatbaocaochamcong.xuatbaocaochamcongcongnhan.ControllerXuatBCCCCN;
 
 import java.sql.SQLException;
 
-public class ControllerXuatBCCC extends Application {
+public class ControllerXuatBCCC  {
     public ViewXuatBCCC viewXuatBCCC;
 
     public ControllerXuatBCCC() {
@@ -24,20 +24,11 @@ public class ControllerXuatBCCC extends Application {
         System.out.println("Xuất báo cáo chấm công");
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    @Override
-    public void start(Stage stage) throws Exception {
-        viewXuatBCCC.show();
-    }
 
     public void xuatBCCCCNClicked() throws SQLException, ClassNotFoundException {
         ControllerXuatBCCCCN controllerXuatBCCCCN = new ControllerXuatBCCCCN();
         viewXuatBCCC.pane.getChildren().clear();
         viewXuatBCCC.pane.getChildren().add(controllerXuatBCCCCN.viewXuatBCCCCN.root);
     }
-
 
 }

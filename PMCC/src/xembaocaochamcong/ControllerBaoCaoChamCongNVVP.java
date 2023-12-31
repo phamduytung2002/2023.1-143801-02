@@ -1,4 +1,4 @@
-package baocaochamcong;
+package xembaocaochamcong;
 
 import entity.BangBaoCaoNVVP;
 import entity.ThongTinNhanSu;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ControllerBaoCaoChamCongNVVP {
-    ViewBaoCaoChamCongNVVP viewBaoCaoChamCongNVVP;
+    public ViewBaoCaoChamCongNVVP viewBaoCaoChamCongNVVP;
 
     BoundaryHRSystem HRSystem;
 
@@ -54,8 +54,22 @@ public class ControllerBaoCaoChamCongNVVP {
         }
     }
 
-    private boolean checkValue(String thang, String nam){
-        return thang.matches("[0-9]{2}") && nam.matches("[0-9]{4}");
+    private boolean checkValue(String thang, String nam) {
+        // Check if thang is a numeric value with 1 or 2 digits
+        if (!thang.matches("[0-9]{1,2}")) {
+            return false;
+        }
+
+        // Check if nam is a numeric value with exactly 4 digits
+        if (!nam.matches("[0-9]{4}")) {
+            return false;
+        }
+
+        // Convert thang to an integer for range check
+        int month = Integer.parseInt(thang);
+
+        // Check if thang is in the valid range (1 to 12)
+        return month >= 1 && month <= 12;
     }
 
     public void changeContent(AnchorPane content){

@@ -13,9 +13,13 @@ module PMCC {
     opens login.java to javafx.fxml;
     exports main.main.java to javafx.graphics;
     opens home.java to javafx.fxml;
-    opens baocaochamcong to javafx.fxml;
+    opens xembaocaochamcong to javafx.fxml;
     opens entity to javafx.base;
     exports xuatbaocaochamcong;
     exports home.java;
     exports xuatbaocaochamcong.xuatbaocaochamcongcongnhan;
+    exports duyetchamcong.java;
+    exports yeucauchinhsuachamcongnvvp.Test;
+    opens yeucauchinhsuachamcongnvvp.java to javafx.fxml;
+    opens xembaocaochamcongchitiet.java;
 }

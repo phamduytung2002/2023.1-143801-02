@@ -1,4 +1,4 @@
-package baocaochamcong;
+package xembaocaochamcong;
 
 import entity.BanGhiChamCong;
 

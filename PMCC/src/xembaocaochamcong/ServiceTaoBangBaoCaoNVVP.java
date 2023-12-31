@@ -1,4 +1,4 @@
-package baocaochamcong;
+package xembaocaochamcong;
 
 import dbconnector.DBBanGhiChamCong;
 import entity.BanGhiChamCong;
