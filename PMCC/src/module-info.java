@@ -9,8 +9,8 @@ module PMCC {
     requires com.opencsv;
     requires org.apache.poi.ooxml;
     requires org.junit.jupiter.api;
-    opens DBConnector.java to javafx.fxml;
-    exports DBConnector.java;
+    opens dbconnector.java to javafx.fxml;
+    exports dbconnector.java;
     exports YeuCauChinhSuaChamCongNVVP.java;
     exports login.java to javafx.fxml;
     opens login.java to javafx.fxml;

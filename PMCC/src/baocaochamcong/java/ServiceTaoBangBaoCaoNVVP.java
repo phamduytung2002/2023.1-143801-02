@@ -1,6 +1,6 @@
 package baocaochamcong.java;
 
-import DBConnector.DBBanGhiChamCong;
+import dbconnector.DBBanGhiChamCong;
 import entity.BanGhiChamCong;
 import entity.BangBaoCaoNVVP;
 import entity.DongBaoCaoNVVP;

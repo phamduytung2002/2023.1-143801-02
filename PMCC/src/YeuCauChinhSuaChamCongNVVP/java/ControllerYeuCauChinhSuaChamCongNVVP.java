@@ -1,9 +1,8 @@
 package YeuCauChinhSuaChamCongNVVP.java;
 
-import DBConnector.java.DBConnector;
+import dbconnector.java.DBConnector;
 import javafx.scene.control.Alert;
 import org.bson.Document;
-import org.junit.runners.Suite;
 
 import java.time.LocalDate;
 

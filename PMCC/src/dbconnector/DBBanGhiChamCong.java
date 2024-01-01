@@ -1,4 +1,4 @@
-package DBConnector;
+package dbconnector;
 
 import entity.BanGhiChamCong;
 

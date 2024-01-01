@@ -2,8 +2,8 @@ package xuatbaocaochamcong.xuatbaocaochamcongcongnhan;
 
 import baocaochamcong.java.ServiceTinhThoiGian;
 import com.opencsv.CSVWriter;
-import DBConnector.DBBanGhiChamCong;
-import DBConnector.DBConnector;
+import dbconnector.DBBanGhiChamCong;
+import dbconnector.DBConnector;
 import entity.BanGhiChamCong;
 import javafx.application.Application;
 
@@ -29,7 +29,6 @@ import java.io.FileOutputStream;
 import java.io.File;
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import baocaochamcong.java.ServiceTaoBangBaoCaoNVVP;
 
 public class ControllerXuatBCCCCN extends Application {
     public List<DataModel> dataList;

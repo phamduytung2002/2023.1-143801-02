@@ -1,6 +1,6 @@
 package HRSystem.java;
 
-import DBConnector.DBConnector;
+import dbconnector.DBConnector;
 import entity.ThongTinNhanSu;
 import org.bson.Document;
 
