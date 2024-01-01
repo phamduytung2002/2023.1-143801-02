@@ -1,14 +1,14 @@
-package xembaocaochamcong.test;
+package servicetinhthoigian.test;
 
 import org.junit.Test;
-import xembaocaochamcong.ServiceTinhThoiGian;
+import servicetinhthoigian.java.ServiceTinhSoGioDiMuonVeSom;
 
 import java.time.LocalTime;
 
 import static org.junit.Assert.assertEquals;
 
 public class testTinhSoGioDiMuonVeSomBlackBox {
-    ServiceTinhThoiGian serviceTinhThoiGian = new ServiceTinhThoiGian();
+    ServiceTinhSoGioDiMuonVeSom serviceTinhThoiGian = new ServiceTinhSoGioDiMuonVeSom();
 
     @Test
     public void testcase1() throws Exception {

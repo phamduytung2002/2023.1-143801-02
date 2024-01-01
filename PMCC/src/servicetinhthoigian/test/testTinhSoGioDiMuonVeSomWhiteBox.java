@@ -1,6 +1,6 @@
-package xembaocaochamcong.test;
+package servicetinhthoigian.test;
 
-import xembaocaochamcong.ServiceTinhThoiGian;
+import servicetinhthoigian.java.ServiceTinhSoGioDiMuonVeSom;
 import org.junit.Test;
 
 import java.time.LocalTime;
@@ -8,7 +8,7 @@ import java.time.LocalTime;
 import static org.junit.Assert.assertEquals;
 
 public class testTinhSoGioDiMuonVeSomWhiteBox {
-    ServiceTinhThoiGian serviceTinhThoiGian = new ServiceTinhThoiGian();
+    ServiceTinhSoGioDiMuonVeSom serviceTinhThoiGian = new ServiceTinhSoGioDiMuonVeSom();
 
     @Test(expected = Exception.class)
     public void testcase_1() throws Exception {

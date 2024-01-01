@@ -5,6 +5,7 @@ import entity.BanGhiChamCong;
 import entity.BangBaoCaoNVVP;
 import entity.DongBaoCaoNVVP;
 import entity.ThongTinNhanSu;
+import servicetinhthoigian.java.ServiceTinhThoiGian;
 
 import java.util.List;
 

@@ -26,4 +26,5 @@ module PMCC {
 //    exports yeucauchinhsuachamcongnvvp.Test;
 //    opens yeucauchinhsuachamcongnvvp.java to javafx.fxml;
     opens xembaocaochamcongchitiet.java;
+    exports servicetinhthoigian.java;
 }
