@@ -11,7 +11,7 @@ module PMCC {
     requires org.junit.jupiter.api;
     opens dbconnector.java to javafx.fxml;
     exports dbconnector.java;
-//    exports yeucauchinhsuachamcongnvvp.java;
+    exports yeucauchinhsuachamcongnvvp.java;
     requires com.jfoenix;
     exports login.java to javafx.fxml;
     opens login.java to javafx.fxml;
@@ -23,7 +23,7 @@ module PMCC {
     exports home.java;
     exports xuatbaocaochamcong.xuatbaocaochamcongcongnhan;
     exports duyetchamcong.java;
-//    exports yeucauchinhsuachamcongnvvp.Test;
-//    opens yeucauchinhsuachamcongnvvp.java to javafx.fxml;
+    exports yeucauchinhsuachamcongnvvp.Test;
+    opens yeucauchinhsuachamcongnvvp.java to javafx.fxml;
     opens xembaocaochamcongchitiet.java;
 }
