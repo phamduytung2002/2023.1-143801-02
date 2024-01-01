@@ -24,6 +24,9 @@ public class ServiceTaoBangBaoCaoNVVP {
             String id = ttns.getID();
             DBBanGhiChamCong dbBanGhiChamCong = new DBBanGhiChamCong();
             List<BanGhiChamCong> listBanGhiChamCong = dbBanGhiChamCong.queryByIDThangNam(id, thang, nam);
+            for(BanGhiChamCong y:listBanGhiChamCong){
+                System.out.println(y.getID() + y.getThoiGian());
+            }
             int tongSoBuoiLam = serviceTinhThoiGian.tinhTongSoBuoiLam(listBanGhiChamCong);
             double tongSoGioDiMuonVeSom = serviceTinhThoiGian.tinhTongSoGioDiMuonVeSom(listBanGhiChamCong);
             DongBaoCaoNVVP dong = new DongBaoCaoNVVP(ttns, thang, tongSoBuoiLam, tongSoGioDiMuonVeSom);

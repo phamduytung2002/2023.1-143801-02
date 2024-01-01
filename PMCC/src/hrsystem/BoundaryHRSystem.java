@@ -16,18 +16,25 @@ public class BoundaryHRSystem {
         List<Document> nhanSu = dbConnector1.getData();
         List<Document> donVi = dbConnector.getData();
         for(Document document: nhanSu){
-                String maNV = document.getString("MaNV");
-                String hoTen = document.getString("HoTen");
-                String maDV = document.getString("MaDV");
-                String tenDV = "";
-                for(Document document1: donVi){
-                    if(document1.getString("MaDV").equals(maDV)){
-                        tenDV = document1.getString("TenDV");
+            String maNV = document.getString("MaNV");
+            String hoTen = document.getString("HoTen");
+            String maDV = document.getString("MaDV");
+            String tenDV = "";
+            for(Document document1: donVi){
+                if(document1.getString("MaDV").equals(maDV)){
+                    tenDV = document1.getString("TenDV");
+                    String loai = document1.getString("Loai");
+                    if(!loai.equals("NhanVien")){
+                        break;
+                    } else{
+                        ret.add(new ThongTinNhanSu(hoTen,maNV,tenDV));
                         break;
                     }
-
-                ret.add(new ThongTinNhanSu(hoTen,maNV,tenDV));
+                }
             }
+        }
+        for(ThongTinNhanSu ttns: ret){
+            System.out.println(ttns.getID() + ttns.getHoTen() + ttns.getBoPhanLamViec());
         }
         return ret;
     }

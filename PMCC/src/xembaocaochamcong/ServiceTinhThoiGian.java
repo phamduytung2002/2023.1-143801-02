@@ -2,8 +2,10 @@ package xembaocaochamcong;
 
 import entity.BanGhiChamCong;
 
+import java.lang.reflect.Array;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -28,11 +30,11 @@ public class ServiceTinhThoiGian {
             LocalTime thoiGianTrongNgay = x.getThoiGianTrongNgay();
             if(day != currentDay){
                 currentDay = day;
+                result += tongKetSoBuoiTrongNgay(somNhatBuoiSang, muonNhatBuoiSang, somNhatBuoiChieu, muonNhatBuoiChieu);
                 somNhatBuoiSang = Constant.GIO_KET_THUC_LAM_CA_SANG;
                 muonNhatBuoiSang = Constant.GIO_BAT_DAU_LAM_CA_SANG;
                 somNhatBuoiChieu = Constant.GIO_KET_THUC_LAM_CA_CHIEU;
                 muonNhatBuoiChieu = Constant.GIO_BAT_DAU_LAM_CA_CHIEU;
-                result += tongKetSoBuoiTrongNgay(somNhatBuoiSang, muonNhatBuoiSang, somNhatBuoiChieu, muonNhatBuoiChieu);
             }
             if(thoiGianTrongNgay.isBefore(Constant.RANH_GIOI_SANG_CHIEU)){
                 if(thoiGianTrongNgay.isBefore(somNhatBuoiSang)){
@@ -48,6 +50,7 @@ public class ServiceTinhThoiGian {
                 }
             }
         }
+        System.out.println(somNhatBuoiSang);
         result += tongKetSoBuoiTrongNgay(somNhatBuoiSang, muonNhatBuoiSang, somNhatBuoiChieu, muonNhatBuoiChieu);
 
         return result;
@@ -204,5 +207,15 @@ public class ServiceTinhThoiGian {
 
     private double tongKetSoGioDiMuonVeSom(LocalTime somNhatBuoiSang, LocalTime muonNhatBuoiSang, LocalTime somNhatBuoiChieu, LocalTime muonNhatBuoiChieu) throws Exception {
         return soGioDiMuonVeSomTrongBuoi("Sang", somNhatBuoiSang, muonNhatBuoiSang) + soGioDiMuonVeSomTrongBuoi("Chieu", somNhatBuoiChieu, muonNhatBuoiChieu);
+    }
+
+    private List<BanGhiChamCong> getBanGhiChamCongTheoNgay(List<BanGhiChamCong> listBanGhiChamCong, int ngay){
+        ArrayList<BanGhiChamCong> ret = new ArrayList<>();
+        for(BanGhiChamCong banGhi: listBanGhiChamCong){
+            if(banGhi.getDay()==ngay){
+                ret.add(banGhi);
+            }
+        }
+        return ret;
     }
 }
