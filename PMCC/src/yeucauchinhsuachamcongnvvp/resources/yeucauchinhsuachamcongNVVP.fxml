@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="content" prefHeight="555.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+      <DatePicker fx:id="DateBaoCao" layoutX="182.0" layoutY="82.0" prefHeight="26.0" prefWidth="362.0" />
+      <TextArea fx:id="ChiTietYeuCau" layoutX="182.0" layoutY="268.0" prefHeight="95.0" prefWidth="362.0" />
+      <ChoiceBox fx:id="LoaiYeuCau" layoutX="182.0" layoutY="211.0" prefHeight="26.0" prefWidth="362.0" />
+      <Button fx:id="confirmButton" layoutX="14.0" layoutY="485.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="116.0" text="Xác nhận" />
+      <TextArea fx:id="MaSoNV" layoutX="182.0" layoutY="139.0" prefHeight="3.0" prefWidth="362.0" />
+      <TextArea fx:id="MinhChung" layoutX="182.0" layoutY="396.0" prefHeight="38.0" prefWidth="362.0" />
+      <Text fontSmoothingType="LCD" layoutX="27.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày Yêu Cầu chỉnh sửa">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Text fontSmoothingType="LCD" layoutX="38.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mã số nhân viên">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Text fontSmoothingType="LCD" layoutX="38.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loại Yêu Cầu">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Text fontSmoothingType="LCD" layoutX="39.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chi Tiết Yêu Cầu">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Text fontSmoothingType="LCD" layoutX="38.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Link Minh Chứng">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Button fx:id="quaylaibutton" layoutX="486.0" layoutY="485.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="116.0" text="Quay lại" />
+      <Text layoutX="27.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yêu cầu chỉnh sửa chấm công Nhân viên văn phòng">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+  </children>
+</AnchorPane>

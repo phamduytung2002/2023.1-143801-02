@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="160.0" layoutY="59.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="278.0" text="Xuất thống kê chấm công" />
+      <Button layoutX="160.0" layoutY="131.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="278.0" text="Xuất báo cáo chấm công nhân viên" />
+      <Label layoutX="50.0" layoutY="14.0" prefHeight="30.0" prefWidth="318.0" text="Xuất báo cáo chấm công">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="160.0" layoutY="222.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="278.0" text="Xuất báo cáo chấm công công nhân" fx:id="xuatBCCCNButton" />
+      <Button layoutX="160.0" layoutY="299.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="278.0" text="Xuất thông tin chấm công chi tiết" />
+   </children>
+</AnchorPane>

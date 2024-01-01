@@ -9,14 +9,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="modifiablePane" accessibleText="fds" layoutX="-1.0" minHeight="0.0" minWidth="0.0" prefHeight="397.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="modifiablePane" accessibleText="fds" layoutX="-1.0" minHeight="0.0" minWidth="0.0" prefHeight="517.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
      <children>
-        <Text fill="#00000088" layoutX="111.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duyệt chấm công" textAlignment="CENTER" wrappingWidth="185.59996938705444">
-           <font>
-              <Font size="22.0" />
-           </font>
-        </Text>
-        <TableView fx:id="bangYeuCauChinhSua" layoutX="27.0" layoutY="88.0" prefHeight="276.0" prefWidth="398.0" style="-fx-background-radius: 10px;">
+        <TableView fx:id="bangYeuCauChinhSua" layoutX="24.0" layoutY="102.0" prefHeight="347.0" prefWidth="642.0" style="-fx-background-radius: 10px;">
           <columns>
             <TableColumn fx:id="hoTenColumn" minWidth="0.0" prefWidth="46.40003204345703" text="Họ Tên" />
               <TableColumn fx:id="idColumn" minWidth="0.0" prefWidth="67.199951171875" text="Mã NV" />
@@ -28,8 +23,17 @@
               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
            </columnResizePolicy>
         </TableView>
-      <Button fx:id="homeButton" layoutX="306.0" layoutY="49.0" mnemonicParsing="false" style="-fx-background-color: blue; -fx-text-fill: white;" text="Home" />
-      <Button fx:id="logoutButton" layoutX="370.0" layoutY="49.0" mnemonicParsing="false" style="-fx-background-color: blue; -fx-text-fill: white;" text="Logout" />
+      <Text layoutX="24.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Xem yêu cầu chỉnh sửa chấm công">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="24.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duyệt chấm công">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Button fx:id="quaylaibutton" layoutX="581.0" layoutY="468.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" text="Quay lại" />
 <!--      <Avatar layoutX="20.0" layoutY="14.0" style="-charm-radius: 20px;">-->
 <!--         <image>-->
 <!--            <Image url="@images.jpg" />-->

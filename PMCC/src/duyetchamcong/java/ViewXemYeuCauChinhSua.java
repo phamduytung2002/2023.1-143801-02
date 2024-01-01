@@ -20,44 +20,44 @@ import java.io.IOException;
 
 public class ViewXemYeuCauChinhSua{
     @FXML
-    private StackPane xemBaoCaoChamCongPane;
+    public StackPane xemBaoCaoChamCongPane;
 
     @FXML
-    private StackPane duyetChamCongPane;
+    public StackPane duyetChamCongPane;
 
     @FXML
-    private StackPane trangChuPane;
+    public StackPane trangChuPane;
 
-    private Parent root;
+    public Parent root;
 
-    private Stage stage  = new Stage();
-
-    @FXML
-    private TableView<DongYeuCauChinhSua> bangYeuCauChinhSua;
+    public Stage stage  = new Stage();
 
     @FXML
-    private TableColumn<DongYeuCauChinhSua, String> hoTenColumn;
+    public TableView<DongYeuCauChinhSua> bangYeuCauChinhSua;
 
     @FXML
-    private TableColumn<DongYeuCauChinhSua, String>idColumn;
+    public TableColumn<DongYeuCauChinhSua, String> hoTenColumn;
 
     @FXML
-    private TableColumn<DongYeuCauChinhSua, String> liDoColumn;
+    public TableColumn<DongYeuCauChinhSua, String>idColumn;
 
     @FXML
-    private TableColumn<DongYeuCauChinhSua, String> minhChungColumn;
+    public TableColumn<DongYeuCauChinhSua, String> liDoColumn;
 
     @FXML
-    private AnchorPane modifiablePane;
+    public TableColumn<DongYeuCauChinhSua, String> minhChungColumn;
+
+    @FXML
+    public AnchorPane modifiablePane;
 
 
     @FXML
-    private TableColumn<DongYeuCauChinhSua, String> yeuCauColumn;
+    public TableColumn<DongYeuCauChinhSua, String> yeuCauColumn;
 
-    public Button homeButton;
-    public Button logoutButton;
+    public Button quaylaibutton;
 
-    private FXMLLoader loader;
+
+    public FXMLLoader loader;
 
     public FXMLLoader getLoader(){
         return loader;
@@ -95,10 +95,12 @@ public class ViewXemYeuCauChinhSua{
     }
 
     void show() {
-        stage.setTitle("Công nhân");
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+    public void quaylaibuttonclicked(EventHandler<MouseEvent> eventHandler){
+        quaylaibutton.setOnMouseClicked(eventHandler);
     }
 
 

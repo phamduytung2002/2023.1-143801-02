@@ -11,22 +11,19 @@ module PMCC {
     requires org.junit.jupiter.api;
     opens dbconnector.java to javafx.fxml;
     exports dbconnector.java;
-    exports YeuCauChinhSuaChamCongNVVP.java;
+//    exports yeucauchinhsuachamcongnvvp.java;
+    requires com.jfoenix;
     exports login.java to javafx.fxml;
     opens login.java to javafx.fxml;
     exports main.main.java to javafx.graphics;
     opens home.java to javafx.fxml;
-    exports login.test to junit;
-    exports baocaochamcong.test to junit;
-    // open the package to javafx.fxml
-    exports duyetchamcong.java; // export the package
-    exports duyetchamcong.test to junit;
-    exports xuatbaocaochamcong.xuatbaocaochamcongcongnhan;
-    opens YeuCauChinhSuaChamCongNVVP.Test to junit;
+    opens xembaocaochamcong to javafx.fxml;
+    opens entity to javafx.base;
+    exports xuatbaocaochamcong;
     exports home.java;
-    opens baocaochamcong.java to javafx.base, javafx.fxml;
-    opens duyetchamcong.java to javafx.base, javafx.fxml;
-    opens YeuCauChinhSuaChamCongNVVP.java to javafx.base, javafx.fxml;
-    opens entity to javafx.base, javafx.fxml;
-    exports entity;
+    exports xuatbaocaochamcong.xuatbaocaochamcongcongnhan;
+    exports duyetchamcong.java;
+//    exports yeucauchinhsuachamcongnvvp.Test;
+//    opens yeucauchinhsuachamcongnvvp.java to javafx.fxml;
+    opens xembaocaochamcongchitiet.java;
 }

@@ -7,10 +7,11 @@ public class BanGhiChamCong {
     private String ID;
     private Date thoiGian;
 
-    public BanGhiChamCong(String ID, Date thoiGian){
+    public BanGhiChamCong(String ID, Date thoiGian) {
         this.ID = ID;
         this.thoiGian = thoiGian;
     }
+
 
     public String getID() {
         return ID;
@@ -24,15 +25,15 @@ public class BanGhiChamCong {
         return thoiGian;
     }
 
-    public int getDay(){
+    public void setThoiGian(Date thoiGian) {
+        this.thoiGian = thoiGian;
+    }
+
+    public int getDay() {
         return thoiGian.getDay();
     }
 
-    public LocalTime getThoiGianTrongNgay(){
+    public LocalTime getThoiGianTrongNgay() {
         return LocalTime.of(thoiGian.getHours(), thoiGian.getMinutes(), thoiGian.getSeconds());
-    }
-
-    public void setThoiGian(Date thoiGian) {
-        this.thoiGian = thoiGian;
     }
 }

@@ -9,21 +9,22 @@ public class DongDuyetChinhSua {
     private final StringProperty liDo = new SimpleStringProperty();
     private final StringProperty minhChung = new SimpleStringProperty();
 
-    public DongDuyetChinhSua( String ngay, String liDo, String minhChung){
+    public DongDuyetChinhSua(String ngay, String liDo, String minhChung) {
 
         this.ngay.set(ngay);
         this.liDo.set(liDo);
         this.minhChung.set(minhChung);
     }
 
-    public StringProperty getNgay(){
+    public StringProperty getNgay() {
         return ngay;
     }
-    public  StringProperty getLiDo(){
+
+    public StringProperty getLiDo() {
         return liDo;
     }
 
-    public StringProperty getMinhChung(){
+    public StringProperty getMinhChung() {
         return minhChung;
     }
 }

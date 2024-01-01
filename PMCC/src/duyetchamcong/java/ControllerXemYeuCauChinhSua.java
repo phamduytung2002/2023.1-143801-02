@@ -11,10 +11,10 @@ import java.io.IOException;
 
 public class ControllerXemYeuCauChinhSua {
 
-    private static ViewXemYeuCauChinhSua viewXemYeuCauChinhSua;
+    public static ViewXemYeuCauChinhSua viewXemYeuCauChinhSua;
     public ControllerDuyetYeuCau controllerDuyetYeuCau;
 
-    private FXMLLoader loader;
+    public FXMLLoader loader;
     public FXMLLoader getLoader(){
         return this.viewXemYeuCauChinhSua.getLoader();
     }
@@ -35,6 +35,7 @@ public class ControllerXemYeuCauChinhSua {
             controllerDuyetYeuCau.showView();
         });
 
+
     }
     public void showView(){
         viewXemYeuCauChinhSua.show();
@@ -45,10 +46,7 @@ public class ControllerXemYeuCauChinhSua {
         ViewXemYeuCauChinhSua viewXemYeuCauChinhSua1 = new ViewXemYeuCauChinhSua();
         ControllerDuyetYeuCau controllerDuyetYeuCau1 = new ControllerDuyetYeuCau();
         viewXemYeuCauChinhSua1.initialize();
-//        viewXemYeuCauChinhSua1.setClickDuyetYeuCau(event1 -> {
-//
-//            controllerDuyetYeuCau1.showView();
-//        });
+
         try {
             loader.setController(viewXemYeuCauChinhSua1);
             content.getChildren().set(0, loader.load());

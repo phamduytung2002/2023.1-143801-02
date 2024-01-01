@@ -11,7 +11,7 @@ public class DongYeuCauChinhSua {
     private final StringProperty liDo = new SimpleStringProperty();
     private final StringProperty minhChung = new SimpleStringProperty();
 
-    public DongYeuCauChinhSua( String hoTen, String maNV, String yeuCau, String liDo, String minhChung){
+    public DongYeuCauChinhSua(String hoTen, String maNV, String yeuCau, String liDo, String minhChung) {
 
         this.hoTen.set(hoTen);
         this.maNV.set(maNV);
@@ -20,21 +20,23 @@ public class DongYeuCauChinhSua {
         this.minhChung.set(minhChung);
     }
 
-    public StringProperty getHoTen(){
+    public StringProperty getHoTen() {
         return hoTen;
     }
 
     public StringProperty getMaNV() {
         return maNV;
     }
-    public StringProperty getYeuCau(){
+
+    public StringProperty getYeuCau() {
         return yeuCau;
     }
-    public  StringProperty getLiDo(){
+
+    public StringProperty getLiDo() {
         return liDo;
     }
 
-    public StringProperty getMinhChung(){
+    public StringProperty getMinhChung() {
         return minhChung;
     }
 

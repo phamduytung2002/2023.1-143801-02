@@ -1,0 +1,6 @@
+Naming Conventions:
+
+Packages: Use lowercase letters. e.g., com.example.myproject.
+Classes and Interfaces: Use CamelCase with the first letter capitalized. e.g., MyClass, MyInterface.
+Methods and Variables: Use camelCase with the first letter lowercase. e.g., myMethod(), myVariable.
+Constants: Use uppercase letters with underscores. e.g., MY_CONSTANT.

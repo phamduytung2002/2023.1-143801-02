@@ -1,29 +1,39 @@
 package login.java;
 
-import home.java.ControllerNVVPHome;
+import home.java.ControllerNhanVienVanPhong;
+import home.java.ControllerQuanLyNhanSu;
+import home.java.ControllerTruongVanPhong;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
-import home.java.ControllerTruongDVNVVPHome;
-import home.java.ControllerTruongNhanSuHome;
+
+
 public class ControllerDangNhap {
-    private ViewDangNhap viewDangNhap;
-    private ControllerNVVPHome controllerNVVPHome;
-    private ControllerTruongDVNVVPHome controllerTruongDVNVVPHome;
-    private ControllerTruongNhanSuHome controllerTruongNhanSuHome;
-    private XacThucService xacThucService;
+    public final ViewDangNhap viewDangNhap;
+
+    private final XacThucService xacThucService;
+
+    private ControllerQuanLyNhanSu controllerQuanLyNhanSu;
+    private ControllerTruongVanPhong controllerTruongVanPhong;
 
     public void handleResult(String result){
-        if(result.equals("TruongDonViNVVP")) {
-            viewDangNhap.close();
-            controllerTruongDVNVVPHome.showView();
-        } else if(result.equals("TruongNhanSu")) {
-            viewDangNhap.close();
-            controllerTruongNhanSuHome.showView();
-        } else if(result.equals("NhanVienVanPhong")) {
-            viewDangNhap.close();
-            controllerNVVPHome.showView();
-        } else if(!result.equals("")){
+         if(result.equals("QuanLyNhanSu")) {
+            controllerQuanLyNhanSu = new ControllerQuanLyNhanSu();
+            viewDangNhap.pane.getChildren().clear();
+            viewDangNhap.pane.getChildren().add((Node) controllerQuanLyNhanSu.viewQuanLyNhanSu.root);
+        } else if (result.equals("TruongDonViNVVP")) {
+            controllerTruongVanPhong = new ControllerTruongVanPhong();
+            viewDangNhap.pane.getChildren().clear();
+            viewDangNhap.pane.getChildren().add((Node) controllerTruongVanPhong.viewTruongVanPhong.root);
+
+
+         } else if (result.equals("NhanVienVanPhong")) {
+             ControllerNhanVienVanPhong controllerNhanVienVanPhong = new ControllerNhanVienVanPhong();
+             viewDangNhap.pane.getChildren().clear();
+                viewDangNhap.pane.getChildren().add((Node) controllerNhanVienVanPhong.viewNhanVienVanPhong.root);
+
+         } else if(!result.isEmpty()){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setHeaderText("");
             alert.setTitle("");
@@ -38,21 +48,18 @@ public class ControllerDangNhap {
         }
     }
 
+    public void loginPresed(){
+        String tenDangNhap = viewDangNhap.getTenDangNhap();
+        String matKhau = viewDangNhap.getMatKhau();
+        String result = xacThucService.xacThuc(tenDangNhap, matKhau);
+        System.out.println(result);
+        handleResult(result);
+    }
     public ControllerDangNhap() {
         viewDangNhap = new ViewDangNhap();
-        controllerNVVPHome = new ControllerNVVPHome();
-        controllerTruongDVNVVPHome = new ControllerTruongDVNVVPHome();
-        controllerTruongNhanSuHome = new ControllerTruongNhanSuHome();
         xacThucService = new XacThucService();
-        viewDangNhap.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                String tenDangNhap = viewDangNhap.getTenDangNhap();
-                String matKhau = viewDangNhap.getMatKhau();
-                String result = xacThucService.xacThuc(tenDangNhap, matKhau);
-                System.out.println(result);
-                handleResult(result);
-            }
+        viewDangNhap.setOnMousePressed(event->{
+            loginPresed();
         });
     }
 

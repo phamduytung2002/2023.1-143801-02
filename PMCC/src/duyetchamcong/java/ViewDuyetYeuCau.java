@@ -89,7 +89,6 @@ public class ViewDuyetYeuCau {
         khongxacnhanbutton.addEventHandler(MouseEvent.MOUSE_CLICKED,eventEventHandler);
     }
     void show() {
-        stage.setTitle("Công nhân");
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

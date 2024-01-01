@@ -5,7 +5,7 @@ public class ThongTinNhanSu {
     private String ID;
     private String boPhanLamViec;
 
-    public ThongTinNhanSu(String hoTen, String ID, String boPhanLamViec){
+    public ThongTinNhanSu(String hoTen, String ID, String boPhanLamViec) {
         this.hoTen = hoTen;
         this.ID = ID;
         this.boPhanLamViec = boPhanLamViec;

@@ -1,5 +1,6 @@
 package login.java;
 
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -17,33 +19,36 @@ import java.net.URL;
 public class ViewDangNhap {
     final URL resourceUrl = getClass().getResource("/login/resources/dangnhap.fxml");
     @FXML
-    private Button dangNhapButton ;
+    public Button dangNhapButton ;
 
     @FXML
-    private PasswordField matKhau ;
+    public PasswordField matKhau ;
 
     @FXML
-    private TextField tenDangNhap ;
+    public TextField tenDangNhap ;
 
-
-    Parent root;
+    public AnchorPane pane;
+    public AnchorPane colorPane;;
+    FXMLLoader loader ;
+    public Parent root;
 
     Stage stage  = new Stage();
     ViewDangNhap(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/login/resources/dangnhap.fxml"));
+        loader = new FXMLLoader(getClass().getResource("/login/resources/dangnhap.fxml"));
         try {
             loader.setController(this);
             root = loader.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        colorPane.setStyle("-fx-background-color: #f78910");
     }
 
     void setOnMousePressed(EventHandler<MouseEvent> eventHandler) {
-        dangNhapButton.setOnMouseClicked(eventHandler);
+        dangNhapButton.addEventHandler(MouseEvent.MOUSE_CLICKED, eventHandler);
     }
 
-    void show() {
+    public void show() {
         stage.setTitle("PMCC - Nhóm 2");
         Scene scene = new Scene(root);
         stage.setScene(scene);

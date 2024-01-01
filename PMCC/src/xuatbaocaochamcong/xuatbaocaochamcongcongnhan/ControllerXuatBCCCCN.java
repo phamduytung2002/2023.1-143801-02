@@ -1,22 +1,26 @@
 package xuatbaocaochamcong.xuatbaocaochamcongcongnhan;
 
-import baocaochamcong.java.ServiceTinhThoiGian;
+import javafx.scene.layout.AnchorPane;
+import xembaocaochamcong.ServiceTinhThoiGian;
 import com.opencsv.CSVWriter;
 import dbconnector.DBBanGhiChamCong;
 import dbconnector.DBConnector;
 import entity.BanGhiChamCong;
 import javafx.application.Application;
-
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.xssf.usermodel.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFFont;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.bson.Document;
+import xuatbaocaochamcong.ControllerXuatBCCC;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
-
 import java.nio.file.Path;
-import java.sql.*;
+import java.sql.Date;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,40 +39,44 @@ public class ControllerXuatBCCCCN extends Application {
     public String tenDonVi;
     public ViewXuatBCCCCN viewXuatBCCCCN;
 
+
     public ControllerXuatBCCCCN() throws SQLException, ClassNotFoundException {
         viewXuatBCCCCN = new ViewXuatBCCCCN();
         List<String> listTenDonVi = this.getListTenDonVi();
         viewXuatBCCCCN.initializeComboBox(listTenDonVi);
         viewXuatBCCCCN.TimKiemClicked(event -> {
-
             try {
-                TimKiemClicked();
+                timKiemClicked();
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
-
         });
         viewXuatBCCCCN.XuatBaoCaoClicked(event -> {
             try {
-                XuatBaoCaoClicked();
+                xuatBaoCaoClicked();
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
         });
+        viewXuatBCCCCN.QuayLaiClicked(event -> quayLaiClicked(event));
 
     }
+    public static void main(String[] args) {
+        launch(args);
+    }
+
 
     @Override
     public void start(Stage stage) throws Exception {
         viewXuatBCCCCN.show();
     }
 
-
     private List<String> getListTenDonVi() throws SQLException, ClassNotFoundException {
         DBConnector dbConnector = new DBConnector("HeThongQuanLyNhanSu", "DonVi");
         List<Document> documentList = dbConnector.getData();
         List<String> listTenDonVi = new ArrayList<>();
         for (Document document : documentList) {
+            if (!document.getString("Loai").equals("CongNhan")) continue;
             Set<String> keySet = document.keySet();
             for (String key : keySet) {
                 if (key.equals("TenDV")) {
@@ -79,17 +87,17 @@ public class ControllerXuatBCCCCN extends Application {
         return listTenDonVi;
     }
 
-    private boolean checkValidDate() {
+    public boolean checkValidDate() {
         Date thoiGianTu = viewXuatBCCCCN.getThoiGianTu();
         Date thoiGianDen = viewXuatBCCCCN.getThoiGianDen();
         return !thoiGianTu.after(thoiGianDen);
     }
 
-    private boolean checkValidDV() {
+    public boolean checkValidDV() {
         return !Objects.equals(viewXuatBCCCCN.getTenDonVi(), "");
     }
 
-    public void TimKiemClicked() throws Exception {
+    public void timKiemClicked() throws Exception {
         if (!checkValidDV()) {
             viewXuatBCCCCN.setDialog("Vui lòng chọn đơn vị");
             return;
@@ -101,40 +109,44 @@ public class ControllerXuatBCCCCN extends Application {
         if (checkValidDate()) {
             this.tenDonVi = viewXuatBCCCCN.getTenDonVi();
             viewXuatBCCCCN.setDialog("Tìm kiếm thành công");
-            TimKiem();
+            timKiem();
         } else {
             viewXuatBCCCCN.setDialog("Thời gian không hợp lệ");
 
         }
     }
 
-    public void QuayLaiClicked(MouseEvent mouseEvent) {
-        viewXuatBCCCCN.close();
+    public void quayLaiClicked(MouseEvent mouseEvent) {
+        ControllerXuatBCCC controllerXuatBCCC = new ControllerXuatBCCC();
+        viewXuatBCCCCN.pane.getChildren().clear();
+        viewXuatBCCCCN.pane.getChildren().add(controllerXuatBCCC.viewXuatBCCC.root);
+
+
     }
 
     public void showView() {
         viewXuatBCCCCN.show();
     }
 
-    public void XuatBaoCaoClicked() throws Exception {
+    public void xuatBaoCaoClicked() throws Exception {
         if (dataList == null) {
             viewXuatBCCCCN.setDialog("Vui lòng tìm kiếm trước khi xuất báo cáo");
             return;
         }
         if (viewXuatBCCCCN.isCSVButtonSelected()) {
-            CSVXuatBaoCaoClicked();
+            csvXuatBaoCaoClicked();
             viewXuatBCCCCN.setDialog("Xuất báo cáo thành công");
         }
         if (viewXuatBCCCCN.isExcelButtonSelected()) {
-            ExcelXuatBaoCaoClicked();
+            excelXuatBaoCaoClicked();
             viewXuatBCCCCN.setDialog("Xuất báo cáo thành công");
         }
-        if (viewXuatBCCCCN.isCSVButtonSelected() == false && viewXuatBCCCCN.isExcelButtonSelected() == false) {
+        if (!viewXuatBCCCCN.isCSVButtonSelected() && !viewXuatBCCCCN.isExcelButtonSelected()) {
             viewXuatBCCCCN.setDialog("Vui lòng chọn định dạng xuất báo cáo");
         }
     }
 
-    public void TimKiem() throws Exception {
+    public void timKiem() throws Exception {
         dataList = new ArrayList<>();
         viewXuatBCCCCN.resetTable();
         DBConnector dbConnector = new DBConnector("HeThongQuanLyNhanSu", "DonVi");
@@ -166,12 +178,12 @@ public class ControllerXuatBCCCCN extends Application {
                     String nam = String.valueOf(thoiGianTu.getYear());
                     List<BanGhiChamCong> listBanGhiChamCong = dbBanGhiChamCong.queryByIDThangNam(maNV, thoiGianTu.getMonthValue(), thoiGianTu.getYear());
                     String gioLamViec = String.valueOf(serviceTinhThoiGian.tongSoGioLamViec(listBanGhiChamCong));
-                    String gioTangCa = String.valueOf(serviceTinhThoiGian.tongSoGioLamViec(listBanGhiChamCong));
-                    if (gioLamViec.equals("0.0") && gioTangCa.equals("0.0")) {
+                    String gioDiMuon = String.valueOf(serviceTinhThoiGian.tinhTongSoGioDiMuonVeSom(listBanGhiChamCong));
+                    if (gioLamViec.equals("0.0") && gioDiMuon.equals("0.0")) {
                         thoiGianTu = thoiGianTu.plusMonths(1);
                         continue;
                     }
-                    DataModel dataModel = new DataModel(hoten, maNV, donVi, thang, nam, gioLamViec, gioTangCa);
+                    DataModel dataModel = new DataModel(hoten, maNV, donVi, thang, nam, gioLamViec, gioDiMuon);
                     viewXuatBCCCCN.LoadTable(viewXuatBCCCCN.data);
                     viewXuatBCCCCN.data.add(dataModel);
 
@@ -186,10 +198,10 @@ public class ControllerXuatBCCCCN extends Application {
 
     }
 
-    public void CSVXuatBaoCaoClicked() throws Exception {
+    public void csvXuatBaoCaoClicked() throws Exception {
         Path filePath = Path.of("outputCSV.csv");
         List<String[]> writeData = new ArrayList<>();
-        String[] header = {"Họ và tên", "Mã NV", "Đơn vị", "Tháng", "Năm", "Giờ làm việc", "Giờ tăng ca"};
+        String[] header = {"Họ và tên", "Mã NV", "Đơn vị", "Tháng", "Năm", "Giờ làm việc", "Giờ đi muộn"};
         writeData.add(header);
         for (DataModel dataModel : dataList) {
             String[] row = {dataModel.getHoVaTen().getValue(), dataModel.getMaNV().getValue(), dataModel.getDonVi().getValue(), dataModel.getThang().getValue(), dataModel.getNam().getValue(), dataModel.getGioLamViec().getValue(), dataModel.getGioTangCa().getValue()};
@@ -197,14 +209,12 @@ public class ControllerXuatBCCCCN extends Application {
         }
         writeDataLineByLine(writeData, filePath);
     }
-
     public static void writeDataLineByLine(List<String[]> lines, Path filePath) throws Exception {
         try (CSVWriter writer = new CSVWriter(new FileWriter(String.valueOf(filePath)))) {
             writer.writeAll(lines);
         }
     }
-
-    public void ExcelXuatBaoCaoClicked() throws Exception {
+    public void excelXuatBaoCaoClicked() throws Exception {
 
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet("Báo cáo chấm công");
@@ -249,7 +259,7 @@ public class ControllerXuatBCCCCN extends Application {
         headerCell.setCellStyle(headerStyle);
 
         headerCell = header.createCell(6);
-        headerCell.setCellValue("Giờ tăng ca");
+        headerCell.setCellValue("Giờ đi muộn");
         headerCell.setCellStyle(headerStyle);
 
 
@@ -280,8 +290,16 @@ public class ControllerXuatBCCCCN extends Application {
         workbook.close();
     }
 
-    public static void main(String[] args) {
-        launch(args);
+    public void setThoiGianDen(String date) {
+        viewXuatBCCCCN.setThoiGianDen(date);
+    }
+
+    public void setThoiGianTu(String date) {
+        viewXuatBCCCCN.setThoiGianTu(date);
+    }
+
+    public void setTenDonVi(String s) {
+        viewXuatBCCCCN.setTenDonVi(s);
     }
 
 }

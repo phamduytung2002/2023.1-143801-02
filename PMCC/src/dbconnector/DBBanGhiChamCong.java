@@ -1,16 +1,14 @@
 package dbconnector;
 
 import entity.BanGhiChamCong;
-
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import org.bson.Document;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.bson.Document;
-
-public class DBBanGhiChamCong extends DBConnector{
+public class DBBanGhiChamCong extends DBConnector {
     public DBBanGhiChamCong() {
         super("ChamCong", "Ban ghi cham cong_3");
     }

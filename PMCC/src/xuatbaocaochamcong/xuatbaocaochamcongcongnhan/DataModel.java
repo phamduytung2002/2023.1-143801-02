@@ -4,51 +4,51 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class DataModel {
-    private StringProperty HoVaTen = new SimpleStringProperty();
-    private StringProperty MaNV = new SimpleStringProperty();
-    private StringProperty DonVi = new SimpleStringProperty();
-    private StringProperty Thang = new SimpleStringProperty();
-    private StringProperty Nam = new SimpleStringProperty();
-    private StringProperty GioLamViec = new SimpleStringProperty();
-    private StringProperty GioTangCa = new SimpleStringProperty();
+    private final StringProperty hoVaTen = new SimpleStringProperty();
+    private final StringProperty maNV = new SimpleStringProperty();
+    private final StringProperty donVi = new SimpleStringProperty();
+    private final StringProperty thang = new SimpleStringProperty();
+    private final StringProperty nam = new SimpleStringProperty();
+    private final StringProperty gioLamViec = new SimpleStringProperty();
+    private final StringProperty gioTangCa = new SimpleStringProperty();
 
     public DataModel(String HoVaTen, String MaNV, String DonVi, String Thang, String Nam, String GioLamViec, String GioTangCa) {
-        this.HoVaTen.set(HoVaTen);
-        this.MaNV.set(MaNV);
-        this.DonVi.set(DonVi);
-        this.Thang.set(Thang);
-        this.Nam.set(Nam);
-        this.GioLamViec.set(GioLamViec);
-        this.GioTangCa.set(GioTangCa);
+        this.hoVaTen.set(HoVaTen);
+        this.maNV.set(MaNV);
+        this.donVi.set(DonVi);
+        this.thang.set(Thang);
+        this.nam.set(Nam);
+        this.gioLamViec.set(GioLamViec);
+        this.gioTangCa.set(GioTangCa);
 
     }
 
     public StringProperty getHoVaTen() {
-        return HoVaTen;
+        return hoVaTen;
     }
 
     public StringProperty getMaNV() {
-        return MaNV;
+        return maNV;
     }
 
     public StringProperty getDonVi() {
-        return DonVi;
+        return donVi;
     }
 
     public StringProperty getThang() {
-        return Thang;
+        return thang;
     }
 
     public StringProperty getNam() {
-        return Nam;
+        return nam;
     }
 
     public StringProperty getGioLamViec() {
-        return GioLamViec;
+        return gioLamViec;
     }
 
     public StringProperty getGioTangCa() {
-        return GioTangCa;
+        return gioTangCa;
     }
 }
 
