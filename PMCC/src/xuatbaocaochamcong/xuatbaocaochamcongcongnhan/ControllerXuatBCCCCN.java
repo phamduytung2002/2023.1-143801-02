@@ -116,6 +116,9 @@ public class ControllerXuatBCCCCN extends Application {
 
 
     }
+    public double lamTron(double a){
+        return Math.round(a*100.0)/100.0;
+    }
 
     public void showView() {
         viewXuatBCCCCN.show();
@@ -151,14 +154,20 @@ public class ControllerXuatBCCCCN extends Application {
                     maDonVi = document.getString("MaDV");
                     break;
                 }
-
-
             }
         }
+        viewXuatBCCCCN.tendonvilabel.setText(tenDonVi);
+        viewXuatBCCCCN.madonvilabel.setText(maDonVi);
+        viewXuatBCCCCN.thoigiantulabel.setText(String.valueOf(viewXuatBCCCCN.getThoiGianTu()));
+        viewXuatBCCCCN.thoigiandenlabel.setText(String.valueOf(viewXuatBCCCCN.getThoiGianDen()));
         DBConnector dbConnector1 = new DBConnector("HeThongQuanLyNhanSu", "NhanSu");
         List<Document> documentList1 = dbConnector1.getData();
+        int socongnhan = 0;
+        double tongsoGioLamViec = 0;
+        double tongsoGioDiMuon = 0;
         for (Document document : documentList1) {
             if (document.getString("MaDV").equals(maDonVi)) {
+                socongnhan++;
                 String hoten = document.getString("HoTen");
                 String maNV = document.getString("MaNV");
                 String donVi = document.getString("MaDV");
@@ -166,12 +175,18 @@ public class ControllerXuatBCCCCN extends Application {
                 DBBanGhiChamCong dbBanGhiChamCong = new DBBanGhiChamCong();
                 LocalDate thoiGianTu = viewXuatBCCCCN.getThoiGianTu().toLocalDate();
                 LocalDate thoiGianDen = viewXuatBCCCCN.getThoiGianDen().toLocalDate();
+
                 while (!thoiGianTu.isAfter(thoiGianDen)) {
                     String thang = String.valueOf(thoiGianTu.getMonthValue());
                     String nam = String.valueOf(thoiGianTu.getYear());
                     List<BanGhiChamCong> listBanGhiChamCong = dbBanGhiChamCong.queryByIDThangNam(maNV, thoiGianTu.getMonthValue(), thoiGianTu.getYear());
-                    String gioLamViec = String.valueOf(serviceTinhThoiGian.tongSoGioLamViec(listBanGhiChamCong));
-                    String gioDiMuon = String.valueOf(serviceTinhThoiGian.tinhTongSoGioDiMuonVeSom(listBanGhiChamCong));
+                    double giolamviec= lamTron(serviceTinhThoiGian.tongSoGioLamViec(listBanGhiChamCong));
+                    double giodimuon= lamTron(serviceTinhThoiGian.tinhTongSoGioDiMuonVeSom(listBanGhiChamCong));
+
+                    String gioLamViec = String.valueOf(giolamviec);
+                    tongsoGioLamViec += giolamviec;
+                    String gioDiMuon = String.valueOf(giodimuon);
+                    tongsoGioDiMuon += giodimuon;
                     if (gioLamViec.equals("0.0") && gioDiMuon.equals("0.0")) {
                         thoiGianTu = thoiGianTu.plusMonths(1);
                         continue;
@@ -179,14 +194,21 @@ public class ControllerXuatBCCCCN extends Application {
                     DataModel dataModel = new DataModel(hoten, maNV, donVi, thang, nam, gioLamViec, gioDiMuon);
                     viewXuatBCCCCN.LoadTable(viewXuatBCCCCN.data);
                     viewXuatBCCCCN.data.add(dataModel);
-
                     thoiGianTu = thoiGianTu.plusMonths(1);
                     dataList.add(dataModel);
                 }
 
 
+
             }
         }
+        tongsoGioLamViec=lamTron(tongsoGioLamViec);
+        tongsoGioDiMuon=lamTron(tongsoGioDiMuon);
+
+        viewXuatBCCCCN.tongsocongnhanlabel.setText(String.valueOf(socongnhan));
+        viewXuatBCCCCN.tongsogiolamvieclabel.setText(String.valueOf(tongsoGioLamViec));
+        viewXuatBCCCCN.tongsogiodimuonlabel.setText(String.valueOf(tongsoGioDiMuon));
+
 
 
     }

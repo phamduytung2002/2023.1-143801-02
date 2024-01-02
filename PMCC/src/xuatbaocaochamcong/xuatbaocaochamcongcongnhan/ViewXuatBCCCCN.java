@@ -44,6 +44,14 @@ public class ViewXuatBCCCCN {
     public String tenDonVi;
     public FXMLLoader loader;
     public AnchorPane pane;
+public Label tendonvilabel;
+    public Label madonvilabel;
+    public Label tongsocongnhanlabel;
+    public Label thoigiantulabel;
+    public Label thoigiandenlabel;
+    public Label tongsogiolamvieclabel;
+    public Label tongsogiodimuonlabel;
+    public Label tongsogiotangcalabel;
 
     ViewXuatBCCCCN() {
         loader = new FXMLLoader(getClass().getResource("/xuatbaocaochamcong/xuatbaocaochamcongcongnhan/XuatBCCCCN.fxml"));
