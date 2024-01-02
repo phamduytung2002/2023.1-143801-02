@@ -33,13 +33,21 @@ public class ViewXuatBCCCCN {
     public DatePicker thoiGianTu;
     public DatePicker thoiGianDen;
     public Label dialog;
+    @FXML
     public TableColumn<DataModel, String> hoVaTenColumn;
+    @FXML
     public TableColumn<DataModel, String> maNVColumn;
+    @FXML
     public TableColumn<DataModel, String> donViColumn;
+    @FXML
     public TableColumn<DataModel, String> thangColumn;
+    @FXML
     public TableColumn<DataModel, String> namColumn;
+    @FXML
     public TableColumn<DataModel, String> gioLamViecColumn;
+    @FXML
     public TableColumn<DataModel, String> gioTangCaColumn;
+    @FXML
     public TableView<DataModel> tableBaoCao;
     public String tenDonVi;
     public FXMLLoader loader;
