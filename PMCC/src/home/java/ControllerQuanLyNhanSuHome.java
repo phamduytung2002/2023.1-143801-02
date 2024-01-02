@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public class ControllerQuanLyNhanSuHome {
-    public ViewQuanLyNhanSuHome viewQuanLyNhanSuHome;
+    public static  ViewQuanLyNhanSuHome viewQuanLyNhanSuHome;
     public ControllerQuanLyNhanSuHome() {
         viewQuanLyNhanSuHome =new ViewQuanLyNhanSuHome();
         trangchuclicked();

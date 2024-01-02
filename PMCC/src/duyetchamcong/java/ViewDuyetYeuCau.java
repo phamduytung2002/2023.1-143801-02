@@ -31,6 +31,7 @@ public class ViewDuyetYeuCau {
     public Label ngay;
     public Label giodilam;
 
+    public FXMLLoader loader;
     public TableColumn<DongDuyetChinhSua, String> lidoColumn;
     public TableColumn<DongDuyetChinhSua, String> ngayColumn;
     public TableColumn<DongDuyetChinhSua, String> minhchungColumn;
@@ -38,10 +39,7 @@ public class ViewDuyetYeuCau {
 
     public Stage stage  = new Stage();
 
-    private Parent root;
-
-
-
+    public final Parent root;
     public void setHoten(String hoten){
         this.hoten.setText(hoten);
     }
@@ -55,16 +53,17 @@ public class ViewDuyetYeuCau {
         this.nam.setText(nam);
     }
 
-    private final ObservableList<DongDuyetChinhSua> data= FXCollections.observableArrayList();
+    public final ObservableList<DongDuyetChinhSua> data= FXCollections.observableArrayList();
     public void initialize() {
         ngayColumn.setCellValueFactory(celldata->celldata.getValue().getNgay());
         lidoColumn.setCellValueFactory(celldata->celldata.getValue().getLiDo());
         minhchungColumn.setCellValueFactory(celldata->celldata.getValue().getMinhChung());
         bangduyetyeucau.setItems(data);
-        data.add(new DongDuyetChinhSua("20/12/2023","Sai chức vụ","file:///C:/Users/Pham%20Duy%20Tung/Desktop/PMCC/src/duyetchamcong/resources/MinhChung1.png"));
+//        data.add(new DongDuyetChinhSua("20/12/2023","Sai chức vụ","file:///C:/Users/Pham%20Duy%20Tung/Desktop/PMCC/src/duyetchamcong/resources/MinhChung1.png"));
     }
+
     ViewDuyetYeuCau(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/duyetchamcong/resources/UIduyetyeucauchinhsua.fxml"));
+        loader = new FXMLLoader(getClass().getResource("/duyetchamcong/resources/UIduyetyeucauchinhsua.fxml"));
         try {
             loader.setController(this);
             root = loader.load();

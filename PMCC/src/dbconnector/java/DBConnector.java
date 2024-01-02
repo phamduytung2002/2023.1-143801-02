@@ -10,6 +10,8 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
+
+import java.util.List;
 import java.util.function.Consumer;
 
 public class DBConnector {
@@ -49,11 +51,12 @@ public class DBConnector {
     private static final Consumer<Document> printBlock = document -> {
         System.out.println(document.toJson());
     };
-    public void getData() {
+    public List<Document> getData() {
         try {
             this.collection.find().forEach(printBlock);
         } catch (MongoException e) {
             e.printStackTrace();
         }
+        return null;
     }
 }

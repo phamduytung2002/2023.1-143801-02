@@ -7,6 +7,7 @@ import com.mongodb.ServerApi;
 import com.mongodb.ServerApiVersion;
 import com.mongodb.client.*;
 import org.bson.Document;
+import org.bson.types.ObjectId;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,4 +64,59 @@ public class DBConnector {
 
         return documentList;
     }
+    public Document findData(String key, String value) {
+        Document document = null;
+
+        try {
+            document = this.collection.find(new Document(key, value)).first();
+        } catch (MongoException e) {
+            e.printStackTrace();
+        }
+
+        return document;
+    }
+    public Document findDataWithCondition(String key, String value, String conditionField, String conditionValue) {
+        Document document = null;
+
+        try {
+            // Build the query using the $ne operator to exclude documents with TrangThai equal to "Đã xử lý"
+            Document query = new Document(key, value).append(conditionField, new Document("$ne", conditionValue));
+
+            // Execute the find operation
+            document = this.collection.find(query).first();
+        } catch (MongoException e) {
+            e.printStackTrace();
+        }
+
+        return document;
+    }
+
+    public Document updateData1(String key, ObjectId value, Document document) {
+        Document document1 = null;
+
+        try {
+//            document1 = this.collection.findOneAndUpdate(new Document(key, value), document);
+            // Use $set update operator to update the fields
+            Document updateQuery = new Document(key, value);
+            Document update = new Document("$set", document);
+
+            document1 = this.collection.findOneAndUpdate(updateQuery, update);
+        } catch (MongoException e) {
+            e.printStackTrace();
+        }
+
+        return document1;
+    }
+    public Document updateData(String key, String value, Document document) {
+        Document document1 = null;
+
+        try {
+            document1 = this.collection.findOneAndUpdate(new Document(key, value), document);
+        } catch (MongoException e) {
+            e.printStackTrace();
+        }
+
+        return document1;
+    }
+
 }
