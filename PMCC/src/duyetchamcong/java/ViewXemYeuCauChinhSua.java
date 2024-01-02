@@ -91,7 +91,6 @@ public class ViewXemYeuCauChinhSua{
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     void show() {

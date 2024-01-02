@@ -62,7 +62,6 @@ public class ViewDuyetYeuCau {
         minhchungColumn.setCellValueFactory(celldata->celldata.getValue().getMinhChung());
         bangduyetyeucau.setItems(data);
         data.add(new DongDuyetChinhSua("20/12/2023","Sai chức vụ","file:///C:/Users/Pham%20Duy%20Tung/Desktop/PMCC/src/duyetchamcong/resources/MinhChung1.png"));
-
     }
     ViewDuyetYeuCau(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/duyetchamcong/resources/UIduyetyeucauchinhsua.fxml"));
