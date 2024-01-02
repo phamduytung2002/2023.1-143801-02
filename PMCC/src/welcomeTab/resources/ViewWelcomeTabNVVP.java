@@ -1,4 +1,4 @@
-package trangchu.resources;
+package welcomeTab.resources;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -6,12 +6,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class ViewTrangChuNVVP {
+public class ViewWelcomeTabNVVP {
     public final Parent root;
     @FXML
     public FXMLLoader loader;
-    ViewTrangChuNVVP() {
-        loader = new FXMLLoader(getClass().getResource("/trangchu/resources/UITrangChuNhanVienVanPhong.fxml"));
+    ViewWelcomeTabNVVP() {
+        loader = new FXMLLoader(getClass().getResource("/welcomeTab/resources/UIWelcomeTabNhanVienVanPhong.fxml"));
         try {
             loader.setController(this);
             root = loader.load();

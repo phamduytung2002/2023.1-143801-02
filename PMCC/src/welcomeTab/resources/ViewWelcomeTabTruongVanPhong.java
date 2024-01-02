@@ -1,4 +1,4 @@
-package trangchu.resources;
+package welcomeTab.resources;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class ViewTrangChuTruongVanPhong {
+public class ViewWelcomeTabTruongVanPhong {
     @FXML
 
     public FXMLLoader loader;
@@ -14,8 +14,8 @@ public class ViewTrangChuTruongVanPhong {
     public Scene scene;
     public Stage stage;
 
-    ViewTrangChuTruongVanPhong() {
-        loader = new FXMLLoader(getClass().getResource("/trangchu/resources/UITrangChuTruongVanPhong.fxml"));
+    ViewWelcomeTabTruongVanPhong() {
+        loader = new FXMLLoader(getClass().getResource("/welcomeTab/resources/UIWelcomeTabTruongVanPhong.fxml"));
         try {
             loader.setController(this);
             root = loader.load();

@@ -54,28 +54,28 @@ public class DBBanGhiChamCong extends DBConnector {
         LocalDateTime date2 = LocalDateTime.of(2023, 12, 4, 11, 47);
         LocalDateTime date3 = LocalDateTime.of(2023, 12, 4, 12, 49);
         LocalDateTime date4 = LocalDateTime.of(2023, 12, 4, 16, 53);
-        dbBanGhiChamCong.insertData("20200063", Date.from(date1.atZone(ZoneId.of("+07")).toInstant()));
-        dbBanGhiChamCong.insertData("20200063", Date.from(date2.atZone(ZoneId.of("+07")).toInstant()));
-        dbBanGhiChamCong.insertData("20200063", Date.from(date3.atZone(ZoneId.of("+07")).toInstant()));
-        dbBanGhiChamCong.insertData("20200063", Date.from(date4.atZone(ZoneId.of("+07")).toInstant()));
+        dbBanGhiChamCong.insertData("20200573", Date.from(date1.atZone(ZoneId.of("+07")).toInstant()));
+        dbBanGhiChamCong.insertData("20200573", Date.from(date2.atZone(ZoneId.of("+07")).toInstant()));
+        dbBanGhiChamCong.insertData("20200573", Date.from(date3.atZone(ZoneId.of("+07")).toInstant()));
+        dbBanGhiChamCong.insertData("20200573", Date.from(date4.atZone(ZoneId.of("+07")).toInstant()));
 
         date1 = LocalDateTime.of(2023, 12, 5, 7, 30);
         date2 = LocalDateTime.of(2023, 12, 5, 12, 25);
         date3 = LocalDateTime.of(2023, 12, 5, 12, 49);
         date4 = LocalDateTime.of(2023, 12, 5, 17, 13);
-        dbBanGhiChamCong.insertData("20200063", Date.from(date1.atZone(ZoneId.of("+07")).toInstant()));
-        dbBanGhiChamCong.insertData("20200063", Date.from(date2.atZone(ZoneId.of("+07")).toInstant()));
-        dbBanGhiChamCong.insertData("20200063", Date.from(date3.atZone(ZoneId.of("+07")).toInstant()));
-        dbBanGhiChamCong.insertData("20200063", Date.from(date4.atZone(ZoneId.of("+07")).toInstant()));
+        dbBanGhiChamCong.insertData("20200573", Date.from(date1.atZone(ZoneId.of("+07")).toInstant()));
+        dbBanGhiChamCong.insertData("20200573", Date.from(date2.atZone(ZoneId.of("+07")).toInstant()));
+        dbBanGhiChamCong.insertData("20200573", Date.from(date3.atZone(ZoneId.of("+07")).toInstant()));
+        dbBanGhiChamCong.insertData("20200573", Date.from(date4.atZone(ZoneId.of("+07")).toInstant()));
 
         date1 = LocalDateTime.of(2023, 12, 6, 7, 30);
         date2 = LocalDateTime.of(2023, 12, 6, 12, 25);
         date3 = LocalDateTime.of(2023, 12, 6, 12, 49);
         date4 = LocalDateTime.of(2023, 12, 6, 17, 13);
-        dbBanGhiChamCong.insertData("20200063", Date.from(date1.atZone(ZoneId.of("+07")).toInstant()));
-        dbBanGhiChamCong.insertData("20200063", Date.from(date2.atZone(ZoneId.of("+07")).toInstant()));
-        dbBanGhiChamCong.insertData("20200063", Date.from(date3.atZone(ZoneId.of("+07")).toInstant()));
-        dbBanGhiChamCong.insertData("20200063", Date.from(date4.atZone(ZoneId.of("+07")).toInstant()));
+        dbBanGhiChamCong.insertData("20200573", Date.from(date1.atZone(ZoneId.of("+07")).toInstant()));
+        dbBanGhiChamCong.insertData("20200573", Date.from(date2.atZone(ZoneId.of("+07")).toInstant()));
+        dbBanGhiChamCong.insertData("20200573", Date.from(date3.atZone(ZoneId.of("+07")).toInstant()));
+        dbBanGhiChamCong.insertData("20200573", Date.from(date4.atZone(ZoneId.of("+07")).toInstant()));
 //        dbBanGhiChamCong.getData();
         List<BanGhiChamCong> x = dbBanGhiChamCong.queryByIDThangNam("20200063", 12, 2023);
         for(BanGhiChamCong y:x){

@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ViewQuanLyNhanSu {
+public class ViewQuanLyNhanSuHome {
     public final Parent root;
     @FXML
     public AnchorPane header;
@@ -30,7 +30,7 @@ public class ViewQuanLyNhanSu {
     FXMLLoader loader;
     public Pane pane;
 
-    ViewQuanLyNhanSu() {
+    ViewQuanLyNhanSuHome() {
         loader = new FXMLLoader(getClass().getResource("/home/resources/UIQuanLyNhanSu.fxml"));
         try {
             loader.setController(this);

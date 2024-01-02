@@ -1,12 +1,10 @@
 package login.java;
 
-import home.java.ControllerNhanVienVanPhong;
-import home.java.ControllerQuanLyNhanSu;
-import home.java.ControllerTruongVanPhong;
-import javafx.event.EventHandler;
+import home.java.ControllerNVVPHome;
+import home.java.ControllerQuanLyNhanSuHome;
+import home.java.ControllerTruongDVNVVPHome;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
-import javafx.scene.input.MouseEvent;
 
 
 public class ControllerDangNhap {
@@ -14,24 +12,24 @@ public class ControllerDangNhap {
 
     private final XacThucService xacThucService;
 
-    private ControllerQuanLyNhanSu controllerQuanLyNhanSu;
-    private ControllerTruongVanPhong controllerTruongVanPhong;
+    private ControllerQuanLyNhanSuHome controllerQuanLyNhanSuHome;
+    private ControllerTruongDVNVVPHome controllerTruongDVNVVPHome;
 
     public void handleResult(String result){
          if(result.equals("QuanLyNhanSu")) {
-            controllerQuanLyNhanSu = new ControllerQuanLyNhanSu();
+            controllerQuanLyNhanSuHome = new ControllerQuanLyNhanSuHome();
             viewDangNhap.pane.getChildren().clear();
-            viewDangNhap.pane.getChildren().add((Node) controllerQuanLyNhanSu.viewQuanLyNhanSu.root);
+            viewDangNhap.pane.getChildren().add((Node) controllerQuanLyNhanSuHome.viewQuanLyNhanSuHome.root);
         } else if (result.equals("TruongDonViNVVP")) {
-            controllerTruongVanPhong = new ControllerTruongVanPhong();
+            controllerTruongDVNVVPHome = new ControllerTruongDVNVVPHome();
             viewDangNhap.pane.getChildren().clear();
-            viewDangNhap.pane.getChildren().add((Node) controllerTruongVanPhong.viewTruongVanPhong.root);
+            viewDangNhap.pane.getChildren().add((Node) controllerTruongDVNVVPHome.viewTruongDVNVVPHome.root);
 
 
          } else if (result.equals("NhanVienVanPhong")) {
-             ControllerNhanVienVanPhong controllerNhanVienVanPhong = new ControllerNhanVienVanPhong();
+             ControllerNVVPHome controllerNVVPHome = new ControllerNVVPHome();
              viewDangNhap.pane.getChildren().clear();
-                viewDangNhap.pane.getChildren().add((Node) controllerNhanVienVanPhong.viewNhanVienVanPhong.root);
+                viewDangNhap.pane.getChildren().add((Node) controllerNVVPHome.viewNVVPHome.root);
 
          } else if(!result.isEmpty()){
             Alert alert = new Alert(Alert.AlertType.WARNING);
